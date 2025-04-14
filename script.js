@@ -173,3 +173,110 @@
         });
     });
 });
+
+// Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-icon');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            // Prevent scrolling when menu is open
+            document.body.classList.toggle('menu-open');
+        });
+    }
+    
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Sticky header
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+    
+    // Handle touch events for gallery items
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+        item.addEventListener('touchstart', function() {
+            this.classList.add('touch-active');
+        });
+        
+        item.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.classList.remove('touch-active');
+            }, 300);
+        });
+    });
+    
+    // Improve slider performance on mobile
+    const sliders = document.querySelectorAll('.testimonial-slider, .video-thumbnails');
+    sliders.forEach(slider => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+        });
+        
+        slider.addEventListener('touchmove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    });
+    
+    // Adjust video container height on mobile
+    function adjustVideoContainerHeight() {
+        const videoContainer = document.querySelector('.video-container');
+        if (videoContainer && window.innerWidth <= 768) {
+            const mainVideo = document.querySelector('.main-video');
+            const thumbnails = document.querySelector('.video-thumbnails');
+            const controls = document.querySelector('.video-controls');
+            const title = document.querySelector('.video-title');
+            const description = document.querySelector('.video-description');
+            
+            if (mainVideo && thumbnails) {
+                let totalHeight = 0;
+                
+                if (mainVideo) totalHeight += mainVideo.offsetHeight;
+                if (thumbnails) totalHeight += thumbnails.offsetHeight;
+                if (controls) totalHeight += controls.offsetHeight;
+                if (title) totalHeight += title.offsetHeight;
+                if (description) totalHeight += description.offsetHeight;
+                
+                // Add some padding
+                totalHeight += 80;
+                
+                videoContainer.style.minHeight = totalHeight + 'px';
+            }
+        }
+    }
+    
+    // Run on load and resize
+    window.addEventListener('load', adjustVideoContainerHeight);
+    window.addEventListener('resize', adjustVideoContainerHeight);
+});
