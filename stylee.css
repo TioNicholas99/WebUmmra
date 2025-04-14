@@ -758,3 +758,196 @@ footer::before {
         transform: translateX(0);
     }
 }
+
+/* Mobile Responsive Enhancements */
+
+/* Mobile Menu Styles */
+@media (max-width: 991px) {
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--dark-color);
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px 20px;
+        transition: var(--transition);
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        margin: 15px 0;
+    }
+    
+    .nav-menu a {
+        color: #fff;
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+    }
+    
+    header.sticky .nav-menu {
+        background-color: #fff;
+    }
+    
+    header.sticky .nav-menu a {
+        color: var(--dark-color);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid,
+    .packages-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    .section-title h2 {
+        font-size: 30px;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 13px;
+    }
+    
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial {
+        padding: 25px;
+    }
+    
+    .contact-form {
+        padding: 25px;
+    }
+}
+
+/* Fix for video gallery on mobile */
+@media (max-width: 768px) {
+    .video-container {
+        padding: 20px 10px;
+        min-height: auto;
+    }
+    
+    .main-video-wrapper {
+        margin-bottom: 15px;
+    }
+    
+    .video-title {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    
+    .video-description {
+        font-size: 14px;
+    }
+    
+    .thumbnail {
+        flex: 0 0 200px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 991px) {
+    .btn, 
+    .service-card,
+    .package-card,
+    .gallery-item,
+    .contact-info-item,
+    .social-links a {
+        cursor: default; /* Better for touch devices */
+    }
+    
+    /* Larger touch targets */
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .newsletter-form input,
+    .slider-dot {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+    }
+    
+    /* Fix for fixed header on mobile */
+    header {
+        padding: 15px 0;
+    }
+    
+    html {
+        scroll-padding-top: 70px;
+    }
+}
+
+/* Fix viewport issues on mobile */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh;
+    }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+    .service-img,
+    .package-img {
+        height: 180px;
+    }
+}
