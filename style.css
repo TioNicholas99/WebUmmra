@@ -1472,54 +1472,27 @@ body {
     }
 }
 
-/* Mobile Responsiveness Enhancement */
+/* Mobile Responsive Enhancements */
 
-/* Base responsiveness improvements */
+/* Mobile Menu Styles */
 @media (max-width: 991px) {
-    .section-padding {
-        padding: 80px 0;
-    }
-    
-    .section-title h2 {
-        font-size: 32px;
-    }
-    
-    .section-title p {
-        font-size: 16px;
-    }
-    
-    .container {
-        width: 95%;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Header & Navigation */
-    .header-container {
-        padding: 0 15px;
-    }
-    
-    .logo h1 {
-        font-size: 20px;
-    }
-    
     .mobile-menu-btn {
         display: block;
+        z-index: 1001;
     }
     
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 80%;
+        right: -300px;
+        width: 280px;
         height: 100vh;
-        background-color: rgba(255, 255, 255, 0.98);
+        background-color: var(--dark-color);
         flex-direction: column;
         justify-content: center;
-        align-items: center;
         padding: 50px 20px;
         transition: var(--transition);
-        z-index: 999;
+        z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
     
@@ -1532,17 +1505,33 @@ body {
     }
     
     .nav-menu a {
-        color: var(--dark-color);
+        color: #fff;
         font-size: 18px;
+        display: block;
+        padding: 10px 0;
     }
     
-    /* Hero Section */
+    header.sticky .nav-menu {
+        background-color: #fff;
+    }
+    
+    header.sticky .nav-menu a {
+        color: var(--dark-color);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+    
     .hero-content h1 {
         font-size: 36px;
     }
     
     .hero-content p {
-        font-size: 17px;
+        font-size: 16px;
     }
     
     .hero-btns {
@@ -1550,328 +1539,128 @@ body {
         gap: 15px;
     }
     
-    .btn {
-        width: 100%;
-        text-align: center;
-        padding: 12px 20px;
-    }
-    
-    /* About Section */
     .about-content {
         grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .about-img {
-        order: 1;
-    }
-    
-    .about-text {
-        order: 2;
     }
     
     .features {
         grid-template-columns: 1fr;
     }
     
-    /* Services Section */
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Packages Section */
-    .packages-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Gallery Section */
+    .services-grid,
+    .packages-grid,
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
     
-    .gallery-item {
-        height: 200px;
-    }
-    
-    /* Contact Section */
     .contact-container {
         flex-direction: column;
-        gap: 30px;
     }
     
-    .contact-form {
-        padding: 30px 20px;
-    }
-    
-    /* Testimonials */
-    .testimonial {
-        padding: 30px 20px;
-    }
-    
-    .testimonial-text {
-        font-size: 16px;
-    }
-    
-    /* Footer */
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .newsletter-form {
-        height: 46px;
-    }
-    
-    /* Video Gallery */
-    .main-video-wrapper {
-        margin-bottom: 20px;
-    }
-    
-    .video-container {
-        min-height: auto;
-        padding: 20px 10px;
-    }
-    
-    .thumbnail {
-        flex: 0 0 220px;
     }
 }
 
+/* Small Mobile Devices */
 @media (max-width: 576px) {
-    /* Further refinements */
-    .section-padding {
-        padding: 60px 0;
+    .container {
+        width: 95%;
+        padding: 0 10px;
     }
     
     .section-title h2 {
-        font-size: 28px;
-    }
-    
-    .section-title {
-        margin-bottom: 30px;
-    }
-    
-    .hero-content h1 {
         font-size: 30px;
     }
     
-    .hero-content p {
-        font-size: 16px;
-        margin-bottom: 30px;
+    .btn {
+        padding: 12px 25px;
+        font-size: 13px;
+    }
+    
+    .hero-content h1 {
+        font-size: 28px;
     }
     
     .gallery-grid {
         grid-template-columns: 1fr;
     }
     
-    .form-group {
-        margin-bottom: 20px;
+    .testimonial {
+        padding: 25px;
     }
     
-    .form-group input, 
-    .form-group textarea {
-        padding: 12px;
+    .contact-form {
+        padding: 25px;
+    }
+}
+
+/* Fix for video gallery on mobile */
+@media (max-width: 768px) {
+    .video-container {
+        padding: 20px 10px;
+        min-height: auto;
     }
     
-    /* Adjust feature cards */
-    .feature {
-        padding: 12px;
-    }
-    
-    .feature i {
-        font-size: 18px;
-    }
-    
-    /* Adjust service cards */
-    .service-img {
-        height: 180px;
-    }
-    
-    .service-content {
-        padding: 20px;
-    }
-    
-    /* Budget Planner specific */
-    .budget-form,
-    .budget-results {
-        padding: 20px;
-    }
-    
-    .results-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .cost-item {
-        padding: 12px;
-    }
-    
-    /* Video gallery */
-    .video-title {
-        font-size: 18px;
-    }
-    
-    .thumbnail {
-        flex: 0 0 180px;
-    }
-    
-    .play-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    
-    .video-controls {
+    .main-video-wrapper {
         margin-bottom: 15px;
     }
     
-    .slider-nav-btn {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-/* Add hamburger menu animation */
-.mobile-menu-icon {
-    display: none;
-    cursor: pointer;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    z-index: 1000;
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-icon {
-        display: block;
-    }
-    
-    .mobile-menu-icon .bar {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: #fff;
-        margin: 6px 0;
-        transition: 0.4s;
-    }
-    
-    header.sticky .mobile-menu-icon .bar {
-        background-color: var(--dark-color);
-    }
-    
-    .mobile-menu-icon.active .bar:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .mobile-menu-icon.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-icon.active .bar:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-}
-
-/* Add scroll improvements */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) #f1f1f1;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-
-/* Improve touch interactions */
-@media (hover: none) {
-    .service-card:hover,
-    .package-card:hover,
-    .gallery-item:hover,
-    .btn:hover {
-        transform: none;
-    }
-    
-    .nav-menu a::after {
-        height: 3px; /* Make tap targets larger */
-    }
-    
-    .btn {
-        padding: 16px 32px; /* Larger tap targets */
-    }
-    
-    /* Make all interactive elements have sufficient touch area */
-    .form-group input,
-    .form-group textarea,
-    .form-group select,
-    .slider-dot,
-    .slider-nav-btn {
-        min-height: 48px; /* Google's recommended minimum touch target size */
-    }
-    
-    .slider-dot {
-        width: 16px;
-        height: 16px;
-        margin: 0 8px;
-    }
-}
-
-/* Fix content overflow */
-img, video, iframe {
-    max-width: 100%;
-}
-
-/* Add orientation changes */
-@media (orientation: landscape) and (max-height: 600px) {
-    .hero {
-        height: auto;
-        min-height: 100vh;
-    }
-    
-    .nav-menu {
-        padding: 20px;
-    }
-    
-    .nav-menu li {
+    .video-title {
+        font-size: 18px;
         margin: 10px 0;
     }
-}
-
-/* Add specific improvements for very small devices */
-@media (max-width: 375px) {
-    body {
+    
+    .video-description {
         font-size: 14px;
     }
     
-    .section-title h2 {
-        font-size: 24px;
+    .thumbnail {
+        flex: 0 0 200px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 991px) {
+    .btn, 
+    .service-card,
+    .package-card,
+    .gallery-item,
+    .contact-info-item,
+    .social-links a {
+        cursor: default; /* Better for touch devices */
     }
     
-    .hero-content h1 {
-        font-size: 26px;
+    /* Larger touch targets */
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .newsletter-form input,
+    .slider-dot {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
     }
     
-    .contact-info-item {
-        padding: 15px;
+    /* Fix for fixed header on mobile */
+    header {
+        padding: 15px 0;
     }
     
-    .contact-info-item i {
-        font-size: 20px;
-        margin-right: 15px;
+    html {
+        scroll-padding-top: 70px;
     }
-    
-    .footer-col h3 {
-        font-size: 20px;
+}
+
+/* Fix viewport issues on mobile */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh;
+    }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+    .service-img,
+    .package-img {
+        height: 180px;
     }
 }
