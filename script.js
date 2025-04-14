@@ -280,3 +280,16 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', adjustVideoContainerHeight);
     window.addEventListener('resize', adjustVideoContainerHeight);
 });
+// Nonaktifkan tombol F12, Ctrl+Shift+I, Ctrl+U
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+      (e.ctrlKey && e.key === 'U')
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  document.getElementById("konten").innerHTML = atob("SGFsbzogSmlrYSBhZGFsYWggdGFtcGlsIGxpaGF0Lg==");
+
