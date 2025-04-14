@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planning - Ummra Tour and Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="stylee.css" />
+    <style>
+
+    </style>
+</head>s
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Ummra Logo">
+                <h1>Ummra Tour & Travel</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#packages">Packages</a></li>
+                <li><a href="#" class="active">Budget Planner</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Plan Your Pilgrimage Budget</h1>
+            <p>Calculate the estimated cost of your Umrah or Hajj journey with our interactive budget planner.</p>
+        </div>
+    </section>
+
+    <!-- Budget Planner Section -->
+    <section id="budget-planner" class="budget-planner section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Budget Planner</h2>
+                <p>Customize your journey and get an instant cost estimate</p>
+            </div>
+            
+            <div class="budget-container">
+                <!-- Budget Form -->
+                <div class="budget-form">
+                    <h3>Select Your Preferences</h3>
+                    <form id="budgetForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="journeyType">Journey Type</label>
+                                <select id="journeyType" name="journeyType">
+                                    <option value="umrah">Umrah</option>
+                                    <option value="hajj">Hajj</option>
+                                    <option value="umrahPlus">Umrah Plus (with Additional Cities)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="packageType">Package Type</label>
+                                <select id="packageType" name="packageType">
+                                    <option value="economy">Economy</option>
+                                    <option value="standard">Standard</option>
+                                    <option value="premium">Premium</option>
+                                    <option value="vip">VIP</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="departureDate">Departure Date</label>
+                                <input type="date" id="departureDate" name="departureDate" min="2025-04-12">
+                            </div>
+                            <div class="form-group">
+                                <label for="duration">Duration (Days)</label>
+                                <select id="duration" name="duration">
+                                    <option value="10">10 Days</option>
+                                    <option value="14">14 Days</option>
+                                    <option value="21">21 Days</option>
+                                    <option value="28">28 Days</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="customDurationGroup" style="display: none;">
+                                <label for="customDuration">Custom Duration (Days)</label>
+                                <input type="number" id="customDuration" name="customDuration" min="5" max="45" value="10">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="departureCity">Departure City</label>
+                                <select id="departureCity" name="departureCity">
+                                    <option value="jakarta">Jakarta</option>
+                                    <option value="surabaya">Surabaya</option>
+                                    <option value="bandung">Bandung</option>
+                                    <option value="medan">Medan</option>
+                                    <option value="makassar">Makassar</option>
+                                    <option value="bali">Bali</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="travelers">Number of Travelers</label>
+                                <input type="number" id="travelers" name="travelers" min="1" value="1">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="airline">Preferred Airline</label>
+                                <select id="airline" name="airline">
+                                    <option value="any">Any (Best Available)</option>
+                                    <option value="garuda">Garuda Indonesia</option>
+                                    <option value="saudia">Saudia Airlines</option>
+                                    <option value="emirates">Emirates</option>
+                                    <option value="etihad">Etihad Airways</option>
+                                    <option value="qatar">Qatar Airways</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="hotelCategory">Hotel Category</label>
+                                <select id="hotelCategory" name="hotelCategory">
+                                    <option value="3star">3-Star Hotels</option>
+                                    <option value="4star">4-Star Hotels</option>
+                                    <option value="5star">5-Star Hotels</option>
+                                    <option value="luxury">Luxury Hotels</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="roomType">Room Type</label>
+                                <select id="roomType" name="roomType">
+                                    <option value="double">Double Room</option>
+                                    <option value="triple">Triple Room</option>
+                                    <option value="quad">Quad Room</option>
+                                    <option value="suite">Suite</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mealPlan">Meal Plan</label>
+                                <select id="mealPlan" name="mealPlan">
+                                    <option value="breakfast">Breakfast Only</option>
+                                    <option value="halfBoard">Half Board (Breakfast + Dinner)</option>
+                                    <option value="fullBoard">Full Board (All Meals)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="transportType">Transportation in Saudi</label>
+                                <select id="transportType" name="transportType">
+                                    <option value="standard">Standard (Shared Bus)</option>
+                                    <option value="premium">Premium (Small Group Van)</option>
+                                    <option value="private">Private Vehicle</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="button" id="calculateBtn" class="calculate-btn">Calculate Estimated Cost</button>
+                    </form>
+                </div>
+                
+                <!-- Budget Results -->
+                <div class="budget-results" id="budgetResults">
+                    <div class="results-header">
+                        <h3>Your Estimated Budget</h3>
+                        <div class="total-cost" id="totalCost">$3,250 per person</div>
+                    </div>
+                    
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <h4>Flights</h4>
+                            <p id="flightCost">$800</p>
+                            <div class="cost-details" id="flightDetails">Round Trip, Economy Class</div>
+                        </div>
+                        <div class="cost-item">
+                            <h4>Accommodation</h4>
+                            <p id="accommodationCost">$1,200</p>
+                            <div class="cost-details" id="accommodationDetails">9 nights, 4-Star Hotels</div>
+                        </div>
+                        <div class="cost-item">
+                            <h4>Transportation</h4>
+                            <p id="transportCost">$350</p>
+                            <div class="cost-details" id="transportDetails">Airport transfers, Makkah-Madinah</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cost-breakdown" style="margin-top: 20px;">
+                        <div class="cost-item">
+                            <h4>Visa & Fees</h4>
+                            <p id="visaCost">$300</p>
+                            <div class="cost-details" id="visaDetails">Umrah Visa & Processing</div>
+                        </div>
+                        <div class="cost-item">
+                            <h4>Meals</h4>
+                            <p id="mealsCost">$400</p>
+                            <div class="cost-details" id="mealsDetails">Half Board Plan</div>
+                        </div>
+                        <div class="cost-item">
+                            <h4>Other Expenses</h4>
+                            <p id="otherCost">$200</p>
+                            <div class="cost-details" id="otherDetails">Guide, Tips, Misc.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="recommendations">
+                        <h4>Recommendations:</h4>
+                        <ul id="recommendationsList">
+                            <li>Consider upgrading to a Premium package for more comfort during your journey.</li>
+                            <li>Book at least 3 months in advance for better rates.</li>
+                            <li>Adding 1-2 days in Madinah is recommended for a more fulfilling experience.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="book-now-btn" id="bookNowBtn">Proceed to Booking</button>
+                        <button class="save-btn" id="saveQuoteBtn"><i class="fas fa-save"></i> Save Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col footer-about">
+                    <h3>About Ummra</h3>
+                    <p>Ummra Tour and Travel is committed to providing exceptional Umrah and Hajj services with a focus on spiritual guidance, comfort, and unforgettable experiences for all pilgrims.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#packages">Packages</a></li>
+                        <li><a href="#">Budget Planner</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Umrah Packages</a></li>
+                        <li><a href="#">Hajj Packages</a></li>
+                        <li><a href="#">Visa Processing</a></li>
+                        <li><a href="#">Hotel Booking</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">City Tours</a></li>
+                        <li><a href="#">Islamic Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates, special offers, and valuable information.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ummra Tour and Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script2.js"></script> 
+    <!-- JavaScript -->
+    
+</body>
+</html>
