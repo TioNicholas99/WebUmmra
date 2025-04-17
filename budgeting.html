@@ -192,12 +192,12 @@ header {
         position: fixed;
         top: 0;
         right: -280px;
-        width: 220px; /* Lebih ramping */
+        width: 300px;
         height: 100vh;
         background-color: var(--dark-color);
         flex-direction: column;
-        justify-content: flex-start; /* Biar mulai dari atas */
-        padding: 100px 20px 20px; /* Tambah padding top untuk ngasih jarak dari atas */
+        justify-content: flex-start;
+        padding: 100px 20px 20px;
         transition: var(--transition);
         z-index: 1000;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
@@ -208,36 +208,31 @@ header {
     }
 
     .nav-menu li {
-        margin: 10px 0; /* Lebih rapat */
+        margin: 10px 0;
     }
 
     .nav-menu a {
-        color: #fff;
-        font-size: 16px; /* Sedikit lebih kecil */
+        color: #fff !important; /* <- dipaksa tetap putih */
+        font-size: 16px;
         display: block;
         padding: 8px 0;
         transition: color 0.3s ease;
     }
 
     .nav-menu a.active {
-        color: #ffcc00;
+        color: #ffcc00 !important;
         border-bottom: 2px solid #ffcc00;
     }
 
     header.sticky .nav-menu {
-        background-color: #fff;
+        background-color: var(--dark-color); /* Tetap gelap walau sticky */
     }
 
-    header.sticky .nav-menu a {
+    /* Hapus ini kalau sebelumnya bikin warna jadi gelap saat sticky */
+    /* header.sticky .nav-menu a {
         color: var(--dark-color);
-    }
-
-    header.sticky .nav-menu a.active {
-        color: #ffcc00;
-        border-color: #ffcc00;
-    }
+    } */
 }
-
 
         
         
