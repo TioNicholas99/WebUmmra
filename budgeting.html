@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget Planning - Ummra Tour and Travel</title>
+    <title>Perencanaan Anggaran - Ummra Tour and Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="stylee.css" />
     <style>
-
+        /* Style untuk pesan sukses */
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        /* Style untuk tombol WhatsApp */
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
     </style>
 </head>
 <body>
@@ -15,17 +48,17 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="logo.jpg" alt="Ummra Logo">
+                <img src="logo.jpg" alt="Logo Ummra">
                 <h1>Ummra Tour & Travel</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#packages">Packages</a></li>
-                <li><a href="#" class="active">Budget Planner</a></li>
-                <li><a href="index.html#gallery">Gallery</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#home">Beranda</a></li>
+                <li><a href="index.html#about">Tentang Kami</a></li>
+                <li><a href="index.html#services">Layanan</a></li>
+                <li><a href="index.html#packages">Paket</a></li>
+                <li><a href="#" class="active">Kalkulator Anggaran</a></li>
+                <li><a href="index.html#gallery">Galeri</a></li>
+                <li><a href="index.html#contact">Kontak</a></li>
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -36,8 +69,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Plan Your Pilgrimage Budget</h1>
-            <p>Calculate the estimated cost of your Umrah or Hajj journey with our interactive budget planner.</p>
+            <h1>Rencanakan Anggaran Perjalanan Ibadah Anda</h1>
+            <p>Hitung perkiraan biaya perjalanan Umrah atau Haji Anda dengan kalkulator anggaran interaktif kami.</p>
         </div>
     </section>
 
@@ -45,29 +78,47 @@
     <section id="budget-planner" class="budget-planner section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>Budget Planner</h2>
-                <p>Customize your journey and get an instant cost estimate</p>
+                <h2>Kalkulator Anggaran</h2>
+                <p>Sesuaikan perjalanan Anda dan dapatkan estimasi biaya secara instan</p>
             </div>
             
             <div class="budget-container">
                 <!-- Budget Form -->
+
+                <!-- Tambahkan bagian ini setelah form-row terakhir dan sebelum tombol "Hitung Estimasi Biaya" -->
+<div class="form-row">
+    <div class="form-group">
+        <label for="fullName">Nama Lengkap*</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="Masukkan nama lengkap">
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Nomor WhatsApp*</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="contoh: 08123456789">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="contoh: email@domain.com">
+    </div>
+</div>
                 <div class="budget-form">
-                    <h3>Select Your Preferences</h3>
+                    <h3>Pilih Preferensi Anda</h3>
                     <form id="budgetForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="journeyType">Journey Type</label>
+                                <label for="journeyType">Jenis Perjalanan</label>
                                 <select id="journeyType" name="journeyType">
                                     <option value="umrah">Umrah</option>
-                                    <option value="hajj">Hajj</option>
-                                    <option value="umrahPlus">Umrah Plus (with Additional Cities)</option>
+                                    <option value="hajj">Haji</option>
+                                    <option value="umrahPlus">Umrah Plus (dengan Kota Tambahan)</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="packageType">Package Type</label>
+                                <label for="packageType">Jenis Paket</label>
                                 <select id="packageType" name="packageType">
-                                    <option value="economy">Economy</option>
-                                    <option value="standard">Standard</option>
+                                    <option value="economy">Ekonomi</option>
+                                    <option value="standard">Standar</option>
                                     <option value="premium">Premium</option>
                                     <option value="vip">VIP</option>
                                 </select>
@@ -76,28 +127,28 @@
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="departureDate">Departure Date</label>
+                                <label for="departureDate">Tanggal Keberangkatan</label>
                                 <input type="date" id="departureDate" name="departureDate" min="2025-04-12">
                             </div>
                             <div class="form-group">
-                                <label for="duration">Duration (Days)</label>
+                                <label for="duration">Durasi (Hari)</label>
                                 <select id="duration" name="duration">
-                                    <option value="10">10 Days</option>
-                                    <option value="14">14 Days</option>
-                                    <option value="21">21 Days</option>
-                                    <option value="28">28 Days</option>
-                                    <option value="custom">Custom</option>
+                                    <option value="10">10 Hari</option>
+                                    <option value="14">14 Hari</option>
+                                    <option value="21">21 Hari</option>
+                                    <option value="28">28 Hari</option>
+                                    <option value="custom">Kustom</option>
                                 </select>
                             </div>
                             <div class="form-group" id="customDurationGroup" style="display: none;">
-                                <label for="customDuration">Custom Duration (Days)</label>
+                                <label for="customDuration">Durasi Kustom (Hari)</label>
                                 <input type="number" id="customDuration" name="customDuration" min="5" max="45" value="10">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="departureCity">Departure City</label>
+                                <label for="departureCity">Kota Keberangkatan</label>
                                 <select id="departureCity" name="departureCity">
                                     <option value="jakarta">Jakarta</option>
                                     <option value="surabaya">Surabaya</option>
@@ -105,20 +156,20 @@
                                     <option value="medan">Medan</option>
                                     <option value="makassar">Makassar</option>
                                     <option value="bali">Bali</option>
-                                    <option value="other">Other</option>
+                                    <option value="other">Lainnya</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="travelers">Number of Travelers</label>
+                                <label for="travelers">Jumlah Jamaah</label>
                                 <input type="number" id="travelers" name="travelers" min="1" value="1">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="airline">Preferred Airline</label>
+                                <label for="airline">Maskapai Pilihan</label>
                                 <select id="airline" name="airline">
-                                    <option value="any">Any (Best Available)</option>
+                                    <option value="any">Apa Saja (Terbaik yang Tersedia)</option>
                                     <option value="garuda">Garuda Indonesia</option>
                                     <option value="saudia">Saudia Airlines</option>
                                     <option value="emirates">Emirates</option>
@@ -127,106 +178,111 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="hotelCategory">Hotel Category</label>
+                                <label for="hotelCategory">Kategori Hotel</label>
                                 <select id="hotelCategory" name="hotelCategory">
-                                    <option value="3star">3-Star Hotels</option>
-                                    <option value="4star">4-Star Hotels</option>
-                                    <option value="5star">5-Star Hotels</option>
-                                    <option value="luxury">Luxury Hotels</option>
+                                    <option value="3star">Hotel Bintang 3</option>
+                                    <option value="4star">Hotel Bintang 4</option>
+                                    <option value="5star">Hotel Bintang 5</option>
+                                    <option value="luxury">Hotel Mewah</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="roomType">Room Type</label>
+                                <label for="roomType">Jenis Kamar</label>
                                 <select id="roomType" name="roomType">
-                                    <option value="double">Double Room</option>
-                                    <option value="triple">Triple Room</option>
-                                    <option value="quad">Quad Room</option>
+                                    <option value="double">Kamar Double</option>
+                                    <option value="triple">Kamar Triple</option>
+                                    <option value="quad">Kamar Quad</option>
                                     <option value="suite">Suite</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="mealPlan">Meal Plan</label>
+                                <label for="mealPlan">Rencana Makan</label>
                                 <select id="mealPlan" name="mealPlan">
-                                    <option value="breakfast">Breakfast Only</option>
-                                    <option value="halfBoard">Half Board (Breakfast + Dinner)</option>
-                                    <option value="fullBoard">Full Board (All Meals)</option>
+                                    <option value="breakfast">Sarapan Saja</option>
+                                    <option value="halfBoard">Half Board (Sarapan + Makan Malam)</option>
+                                    <option value="fullBoard">Full Board (Semua Makan)</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="transportType">Transportation in Saudi</label>
+                                <label for="transportType">Transportasi di Saudi</label>
                                 <select id="transportType" name="transportType">
-                                    <option value="standard">Standard (Shared Bus)</option>
-                                    <option value="premium">Premium (Small Group Van)</option>
-                                    <option value="private">Private Vehicle</option>
+                                    <option value="standard">Standar (Bus Bersama)</option>
+                                    <option value="premium">Premium (Van Kelompok Kecil)</option>
+                                    <option value="private">Kendaraan Pribadi</option>
                                 </select>
                             </div>
                         </div>
                         
-                        <button type="button" id="calculateBtn" class="calculate-btn">Calculate Estimated Cost</button>
+                        <button type="button" id="calculateBtn" class="calculate-btn">Hitung Estimasi Biaya</button>
                     </form>
                 </div>
                 
                 <!-- Budget Results -->
                 <div class="budget-results" id="budgetResults">
                     <div class="results-header">
-                        <h3>Your Estimated Budget</h3>
-                        <div class="total-cost" id="totalCost">$3,250 per person</div>
+                        <h3>Estimasi Anggaran Anda</h3>
+                        <div class="total-cost" id="totalCost">Rp 52.000.000 per orang</div>
                     </div>
                     
                     <div class="cost-breakdown">
                         <div class="cost-item">
-                            <h4>Flights</h4>
-                            <p id="flightCost">$800</p>
-                            <div class="cost-details" id="flightDetails">Round Trip, Economy Class</div>
+                            <h4>Penerbangan</h4>
+                            <p id="flightCost">Rp 12.800.000</p>
+                            <div class="cost-details" id="flightDetails">Pulang-Pergi, Kelas Ekonomi</div>
                         </div>
                         <div class="cost-item">
-                            <h4>Accommodation</h4>
-                            <p id="accommodationCost">$1,200</p>
-                            <div class="cost-details" id="accommodationDetails">9 nights, 4-Star Hotels</div>
+                            <h4>Akomodasi</h4>
+                            <p id="accommodationCost">Rp 19.200.000</p>
+                            <div class="cost-details" id="accommodationDetails">9 malam, Hotel Bintang 4</div>
                         </div>
                         <div class="cost-item">
-                            <h4>Transportation</h4>
-                            <p id="transportCost">$350</p>
-                            <div class="cost-details" id="transportDetails">Airport transfers, Makkah-Madinah</div>
+                            <h4>Transportasi</h4>
+                            <p id="transportCost">Rp 5.600.000</p>
+                            <div class="cost-details" id="transportDetails">Transfer bandara, Makkah-Madinah</div>
                         </div>
                     </div>
                     
                     <div class="cost-breakdown" style="margin-top: 20px;">
                         <div class="cost-item">
-                            <h4>Visa & Fees</h4>
-                            <p id="visaCost">$300</p>
-                            <div class="cost-details" id="visaDetails">Umrah Visa & Processing</div>
+                            <h4>Visa & Biaya</h4>
+                            <p id="visaCost">Rp 4.800.000</p>
+                            <div class="cost-details" id="visaDetails">Visa Umrah & Proses</div>
                         </div>
                         <div class="cost-item">
-                            <h4>Meals</h4>
-                            <p id="mealsCost">$400</p>
-                            <div class="cost-details" id="mealsDetails">Half Board Plan</div>
+                            <h4>Makan</h4>
+                            <p id="mealsCost">Rp 6.400.000</p>
+                            <div class="cost-details" id="mealsDetails">Paket Half Board</div>
                         </div>
                         <div class="cost-item">
-                            <h4>Other Expenses</h4>
-                            <p id="otherCost">$200</p>
-                            <div class="cost-details" id="otherDetails">Guide, Tips, Misc.</div>
+                            <h4>Biaya Lainnya</h4>
+                            <p id="otherCost">Rp 3.200.000</p>
+                            <div class="cost-details" id="otherDetails">Pemandu, Tips, Lain-lain</div>
                         </div>
                     </div>
                     
                     <div class="recommendations">
-                        <h4>Recommendations:</h4>
+                        <h4>Rekomendasi:</h4>
                         <ul id="recommendationsList">
-                            <li>Consider upgrading to a Premium package for more comfort during your journey.</li>
-                            <li>Book at least 3 months in advance for better rates.</li>
-                            <li>Adding 1-2 days in Madinah is recommended for a more fulfilling experience.</li>
+                            <li>Pertimbangkan untuk meningkatkan ke paket Premium untuk kenyamanan lebih selama perjalanan Anda.</li>
+                            <li>Pesan setidaknya 3 bulan sebelumnya untuk mendapatkan tarif yang lebih baik.</li>
+                            <li>Menambahkan 1-2 hari di Madinah direkomendasikan untuk pengalaman yang lebih memuaskan.</li>
                         </ul>
                     </div>
                     
                     <div class="action-buttons">
-                        <button class="book-now-btn" id="bookNowBtn">Proceed to Booking</button>
-                        <button class="save-btn" id="saveQuoteBtn"><i class="fas fa-save"></i> Save Quote</button>
+                        <button class="book-now-btn" id="bookNowBtn">Lanjutkan ke Pemesanan</button>
+                        <button class="save-btn" id="saveQuoteBtn"><i class="fas fa-save"></i> Simpan Penawaran</button>
+                        <button class="whatsapp-btn" id="whatsappBtn"><i class="fab fa-whatsapp"></i> Kirim via WhatsApp</button>
+                    </div>
+                    
+                    <div class="success-message" id="successMessage">
+                        Informasi paket Anda berhasil dikirim ke Admin Ummra! Tim kami akan segera menghubungi Anda.
                     </div>
                 </div>
             </div>
@@ -238,8 +294,8 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col footer-about">
-                    <h3>About Ummra</h3>
-                    <p>Ummra Tour and Travel is committed to providing exceptional Umrah and Hajj services with a focus on spiritual guidance, comfort, and unforgettable experiences for all pilgrims.</p>
+                    <h3>Tentang Ummra</h3>
+                    <p>Ummra Tour and Travel berkomitmen untuk menyediakan layanan Umrah dan Haji yang luar biasa dengan fokus pada bimbingan spiritual, kenyamanan, dan pengalaman yang tak terlupakan bagi semua jamaah.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -249,45 +305,532 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h3>Quick Links</h3>
+                    <h3>Tautan Cepat</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#packages">Packages</a></li>
-                        <li><a href="#">Budget Planner</a></li>
-                        <li><a href="index.html#gallery">Gallery</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#about">Tentang Kami</a></li>
+                        <li><a href="index.html#services">Layanan</a></li>
+                        <li><a href="index.html#packages">Paket</a></li>
+                        <li><a href="#">Kalkulator Anggaran</a></li>
+                        <li><a href="index.html#gallery">Galeri</a></li>
+                        <li><a href="index.html#contact">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Our Services</h3>
+                    <h3>Layanan Kami</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Umrah Packages</a></li>
-                        <li><a href="#">Hajj Packages</a></li>
-                        <li><a href="#">Visa Processing</a></li>
-                        <li><a href="#">Hotel Booking</a></li>
-                        <li><a href="#">Transportation</a></li>
-                        <li><a href="#">City Tours</a></li>
-                        <li><a href="#">Islamic Tours</a></li>
+                        <li><a href="#">Paket Umrah</a></li>
+                        <li><a href="#">Paket Haji</a></li>
+                        <li><a href="#">Proses Visa</a></li>
+                        <li><a href="#">Pemesanan Hotel</a></li>
+                        <li><a href="#">Transportasi</a></li>
+                        <li><a href="#">Tur Kota</a></li>
+                        <li><a href="#">Tur Islami</a></li>
                     </ul>
                 </div>
                 <div class="footer-col footer-newsletter">
                     <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter to receive updates, special offers, and valuable information.</p>
+                    <p>Berlangganan newsletter kami untuk menerima pembaruan, penawaran khusus, dan informasi berharga.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your Email Address">
+                        <input type="email" placeholder="Alamat Email Anda">
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Ummra Tour and Travel. All Rights Reserved.</p>
+                <p>&copy; 2025 Ummra Tour and Travel. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
-    <script src="script2.js"></script> 
-    <!-- JavaScript -->
     
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Custom duration visibility toggle
+            const durationSelect = document.getElementById('duration');
+            const customDurationGroup = document.getElementById('customDurationGroup');
+            
+            durationSelect.addEventListener('change', function() {
+                if (this.value === 'custom') {
+                    customDurationGroup.style.display = 'block';
+                } else {
+                    customDurationGroup.style.display = 'none';
+                }
+            });
+            
+            // Calculate button functionality
+            const calculateBtn = document.getElementById('calculateBtn');
+            const budgetResults = document.getElementById('budgetResults');
+            
+            calculateBtn.addEventListener('click', function() {
+                calculateBudget();
+                // Display the results section
+                budgetResults.style.display = 'block';
+                
+                // Scroll to results
+                budgetResults.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // WhatsApp button functionality
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            const successMessage = document.getElementById('successMessage');
+            
+            whatsappBtn.addEventListener('click', function() {
+                // Get package details
+                const packageDetails = getPackageDetails();
+                
+                // Format message for WhatsApp
+                const message = formatWhatsAppMessage(packageDetails);
+                
+                // Admin's WhatsApp number (replace with actual number)
+                const adminPhone = '6281234567890';
+                
+                // Create WhatsApp link
+                const whatsappLink = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+                
+                // Open WhatsApp
+                window.open(whatsappLink, '_blank');
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            });
+            
+            // Function to calculate budget
+            function calculateBudget() {
+                // Get form values
+                const journeyType = document.getElementById('journeyType').value;
+                const packageType = document.getElementById('packageType').value;
+                const hotelCategory = document.getElementById('hotelCategory').value;
+                const mealPlan = document.getElementById('mealPlan').value;
+                const transportType = document.getElementById('transportType').value;
+                const travelers = parseInt(document.getElementById('travelers').value);
+                
+                // Base costs in millions of Rupiah
+                let baseCost = 35; // Base cost for economy Umrah
+                
+                // Adjust for journey type
+                if (journeyType === 'hajj') {
+                    baseCost = 100; // Higher base cost for Hajj
+                } else if (journeyType === 'umrahPlus') {
+                    baseCost = 45; // Higher base cost for Umrah Plus
+                }
+                
+                // Adjust for package type
+                if (packageType === 'standard') {
+                    baseCost *= 1.2;
+                } else if (packageType === 'premium') {
+                    baseCost *= 1.5;
+                } else if (packageType === 'vip') {
+                    baseCost *= 2;
+                }
+                
+                // Adjust for hotel category
+                let hotelCost = 0;
+                if (hotelCategory === '3star') {
+                    hotelCost = baseCost * 0.3;
+                } else if (hotelCategory === '4star') {
+                    hotelCost = baseCost * 0.4;
+                } else if (hotelCategory === '5star') {
+                    hotelCost = baseCost * 0.5;
+                } else if (hotelCategory === 'luxury') {
+                    hotelCost = baseCost * 0.6;
+                }
+                
+                // Adjust for meal plan
+                let mealCost = 0;
+                if (mealPlan === 'breakfast') {
+                    mealCost = baseCost * 0.1;
+                } else if (mealPlan === 'halfBoard') {
+                    mealCost = baseCost * 0.15;
+                } else if (mealPlan === 'fullBoard') {
+                    mealCost = baseCost * 0.2;
+                }
+                
+                // Adjust for transport type
+                let transportCost = 0;
+                if (transportType === 'standard') {
+                    transportCost = baseCost * 0.1;
+                } else if (transportType === 'premium') {
+                    transportCost = baseCost * 0.15;
+                } else if (transportType === 'private') {
+                    transportCost = baseCost * 0.2;
+                }
+                
+                // Flight cost
+                const flightCost = baseCost * 0.3;
+                
+                // Visa cost
+                const visaCost = baseCost * 0.1;
+                
+                // Other costs
+                const otherCost = baseCost * 0.05;
+                
+                // Calculate total cost
+                const totalCost = baseCost + hotelCost + mealCost + transportCost + flightCost + visaCost + otherCost;
+                
+                // Format costs to Rupiah
+                const formatRupiah = (value) => {
+                    const million = value * 1000000;
+                    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(million);
+                };
+                
+                // Update the UI with calculated costs
+                document.getElementById('totalCost').textContent = `${formatRupiah(totalCost)} per orang`;
+                document.getElementById('flightCost').textContent = formatRupiah(flightCost);
+                document.getElementById('accommodationCost').textContent = formatRupiah(hotelCost);
+                document.getElementById('transportCost').textContent = formatRupiah(transportCost);
+                document.getElementById('visaCost').textContent = formatRupiah(visaCost);
+                document.getElementById('mealsCost').textContent = formatRupiah(mealCost);
+                document.getElementById('otherCost').textContent = formatRupiah(otherCost);
+                
+                // Update details text
+                updateDetailsText();
+                
+                // Update recommendations
+                updateRecommendations(journeyType, packageType, hotelCategory);
+            }
+            
+            // Function to update details text
+            function updateDetailsText() {
+                const journeyType = document.getElementById('journeyType').value;
+                const hotelCategory = document.getElementById('hotelCategory').value;
+                const mealPlan = document.getElementById('mealPlan').value;
+                const transportType = document.getElementById('transportType').value;
+                const duration = document.getElementById('duration').value === 'custom' ? 
+                    document.getElementById('customDuration').value : 
+                    document.getElementById('duration').value;
+                
+                // Flight details
+                let flightClass = "Ekonomi";
+                if (document.getElementById('packageType').value === 'premium') {
+                    flightClass = "Ekonomi Premium";
+                } else if (document.getElementById('packageType').value === 'vip') {
+                    flightClass = "Bisnis";
+                }
+                
+                document.getElementById('flightDetails').textContent = `Pulang-Pergi, Kelas ${flightClass}`;
+                
+                // Accommodation details
+                let hotelStars = "3";
+                if (hotelCategory === '4star') {
+                    hotelStars = "4";
+                } else if (hotelCategory === '5star') {
+                    hotelStars = "5";
+                } else if (hotelCategory === 'luxury') {
+                    hotelStars = "5+ Mewah";
+                }
+                
+                document.getElementById('accommodationDetails').textContent = `${duration} malam, Hotel Bintang ${hotelStars}`;
+                
+                // Transport details
+                let transportDesc = "Bus Bersama";
+                if (transportType === 'premium') {
+                    transportDesc = "Van Kelompok Kecil";
+                } else if (transportType === 'private') {
+                    transportDesc = "Kendaraan Pribadi";
+                }
+                
+                document.getElementById('transportDetails').textContent = `Transfer bandara, Makkah-Madinah, ${transportDesc}`;
+                
+                // Visa details
+                let visaType = "Visa Umrah";
+                if (journeyType === 'hajj') {
+                    visaType = "Visa Haji";
+                }
+                
+                document.getElementById('visaDetails').textContent = `${visaType} & Proses`;
+                
+                // Meals details
+                let mealDesc = "Sarapan Saja";
+                if (mealPlan === 'halfBoard') {
+                    mealDesc = "Paket Half Board";
+                } else if (mealPlan === 'fullBoard') {
+                    mealDesc = "Paket Full Board";
+                }
+                
+                document.getElementById('mealsDetails').textContent = mealDesc;
+                
+                // Other details
+                document.getElementById('otherDetails').textContent = "Pemandu, Tips, Lain-lain";
+            }
+            
+            // Function to update recommendations
+            function updateRecommendations(journeyType, packageType, hotelCategory) {
+                const recommendationsList = document.getElementById('recommendationsList');
+                
+                // Clear existing recommendations
+                recommendationsList.innerHTML = '';
+                
+                // Add base recommendations
+                const baseRecommendations = [
+                    "Pesan setidaknya 3 bulan sebelumnya untuk mendapatkan tarif yang lebih baik.",
+                    "Siapkan uang saku sekitar 500-1000 SAR untuk pengeluaran pribadi."
+                ];
+                
+                // Add journey-specific recommendations
+                if (journeyType === 'umrah') {
+                    baseRecommendations.unshift("Menambahkan 1-2 hari di Madinah direkomendasikan untuk pengalaman yang lebih memuaskan.");
+                } else if (journeyType === 'hajj') {
+                    baseRecommendations.unshift("Disarankan untuk mempersiapkan fisik dengan baik sebelum melakukan perjalanan Haji.");
+                } else if (journeyType === 'umrahPlus') {
+                    baseRecommendations.unshift("Kunjungan ke Masjid Al-Aqsa sangat direkomendasikan sebagai bagian dari paket Umrah Plus.");
+                }
+                
+                // Add package-specific recommendations
+                if (packageType === 'economy') {
+                    baseRecommendations.push("Pertimbangkan untuk meningkatkan ke paket Standar untuk kenyamanan lebih selama perjalanan Anda.");
+                } else if (packageType === 'standard') {
+                    baseRecommendations.push("Pertimbangkan untuk meningkatkan ke paket Premium untuk pengalaman yang lebih berkesan.");
+                }
+                
+                // Add hotel-specific recommendations
+                if (hotelCategory === '3star') {
+                    baseRecommendations.push("Hotel bintang 4 menawarkan kenyamanan lebih dengan jarak yang tidak jauh dari Masjidil Haram.");
+                }
+                
+                // Add recommendations to the list
+                baseRecommendations.forEach(recommendation => {
+                    const li = document.createElement('li');
+                    li.textContent = recommendation;
+                    recommendationsList.appendChild(li);
+                });
+            }
+            
+            // Function to get package details for WhatsApp message
+            function getPackageDetails() {
+                const journeyType = document.getElementById('journeyType');
+                const packageType = document.getElementById('packageType');
+                const departureDate = document.getElementById('departureDate');
+                const duration = document.getElementById('duration');
+                const customDuration = document.getElementById('customDuration');
+                const departureCity = document.getElementById('departureCity');
+                const travelers = document.getElementById('travelers');
+                const airline = document.getElementById('airline');
+                const hotelCategory = document.getElementById('hotelCategory');
+                const roomType = document.getElementById('roomType');
+                const mealPlan = document.getElementById('mealPlan');
+                const transportType = document.getElementById('transportType');
+                const totalCost = document.getElementById('totalCost');
+                
+                // Format departure date
+                const formattedDate = departureDate.value ? new Date(departureDate.value).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                }) : 'Belum dipilih';
+                
+                // Get actual duration
+                const actualDuration = duration.value === 'custom' ? customDuration.value : duration.value;
+                
+                // Journey type text
+                let journeyTypeText = "Umrah";
+                if (journeyType.value === 'hajj') {
+                    journeyTypeText = "Haji";
+                } else if (journeyType.value === 'umrahPlus') {
+                    journeyTypeText = "Umrah Plus";
+                }
+                
+                // Create details object
+                return {
+                    journeyType: journeyTypeText,
+                    packageType: packageType.options[packageType.selectedIndex].text,
+                    departureDate: formattedDate,
+                    duration: `${actualDuration} Hari`,
+                    departureCity: departureCity.options[departureCity.selectedIndex].text,
+                    travelers: travelers.value,
+                    airline: airline.options[airline.selectedIndex].text,
+                    hotelCategory: hotelCategory.options[hotelCategory.selectedIndex].text,
+                    roomType: roomType.options[roomType.selectedIndex].text,roomType: roomType.options[roomType.selectedIndex].text,
+                    mealPlan: mealPlan.options[mealPlan.selectedIndex].text,
+                    transportType: transportType.options[transportType.selectedIndex].text,
+                    totalCost: totalCost.textContent
+                };
+            }
+            
+            // Function to format WhatsApp message
+            function formatWhatsAppMessage(details) {
+                return `*Permintaan Informasi Paket ${details.journeyType}*
+                
+*Detail Paket:*
+- Jenis Perjalanan: ${details.journeyType}
+- Jenis Paket: ${details.packageType}
+- Tanggal Keberangkatan: ${details.departureDate}
+- Durasi: ${details.duration}
+- Kota Keberangkatan: ${details.departureCity}
+- Jumlah Jamaah: ${details.travelers}
+- Maskapai Pilihan: ${details.airline}
+- Kategori Hotel: ${details.hotelCategory}
+- Jenis Kamar: ${details.roomType}
+- Rencana Makan: ${details.mealPlan}
+- Transportasi: ${details.transportType}
+- Estimasi Biaya: ${details.totalCost}
+
+Mohon informasi lebih lanjut tentang paket ini akhaaa. Terima kasih akhaaa.`;
+            }
+            
+            // Book Now button functionality
+            const bookNowBtn = document.getElementById('bookNowBtn');
+            bookNowBtn.addEventListener('click', function() {
+                // Redirect to booking page (replace with actual URL)
+                window.location.href = 'booking.html';
+            });
+            
+            // Save Quote button functionality
+            const saveQuoteBtn = document.getElementById('saveQuoteBtn');
+            saveQuoteBtn.addEventListener('click', function() {
+                // Get package details
+                const packageDetails = getPackageDetails();
+                
+                // Create PDF or text file (simplified version - just alert)
+                alert('Fitur simpan penawaran akan segera hadir. Penawaran Anda telah dicatat.');
+            });
+            
+            // Set minimum date for departure date input to today
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const formattedToday = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('departureDate').min = formattedToday;
+        });
+
+        // Fungsi untuk mendapatkan detail paket dan kontak untuk WhatsApp
+function getPackageDetails() {
+    const journeyType = document.getElementById('journeyType');
+    const packageType = document.getElementById('packageType');
+    const departureDate = document.getElementById('departureDate');
+    const duration = document.getElementById('duration');
+    const customDuration = document.getElementById('customDuration');
+    const departureCity = document.getElementById('departureCity');
+    const travelers = document.getElementById('travelers');
+    const airline = document.getElementById('airline');
+    const hotelCategory = document.getElementById('hotelCategory');
+    const roomType = document.getElementById('roomType');
+    const mealPlan = document.getElementById('mealPlan');
+    const transportType = document.getElementById('transportType');
+    const totalCost = document.getElementById('totalCost');
+    
+    // Ambil data kontak
+    const fullName = document.getElementById('fullName').value || 'Belum diisi';
+    const phoneNumber = document.getElementById('phoneNumber').value || 'Belum diisi';
+    const email = document.getElementById('email').value || 'Belum diisi';
+    
+    // Format departure date
+    const formattedDate = departureDate.value ? new Date(departureDate.value).toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }) : 'Belum dipilih';
+    
+    // Get actual duration
+    const actualDuration = duration.value === 'custom' ? customDuration.value : duration.value;
+    
+    // Journey type text
+    let journeyTypeText = "Umrah";
+    if (journeyType.value === 'hajj') {
+        journeyTypeText = "Haji";
+    } else if (journeyType.value === 'umrahPlus') {
+        journeyTypeText = "Umrah Plus";
+    }
+    
+    // Create details object
+    return {
+        // Data kontak
+        fullName: fullName,
+        phoneNumber: phoneNumber,
+        email: email,
+        
+        // Data paket
+        journeyType: journeyTypeText,
+        packageType: packageType.options[packageType.selectedIndex].text,
+        departureDate: formattedDate,
+        duration: `${actualDuration} Hari`,
+        departureCity: departureCity.options[departureCity.selectedIndex].text,
+        travelers: travelers.value,
+        airline: airline.options[airline.selectedIndex].text,
+        hotelCategory: hotelCategory.options[hotelCategory.selectedIndex].text,
+        roomType: roomType.options[roomType.selectedIndex].text,
+        mealPlan: mealPlan.options[mealPlan.selectedIndex].text,
+        transportType: transportType.options[transportType.selectedIndex].text,
+        totalCost: totalCost.textContent
+    };
+}
+
+// Function to format WhatsApp message
+function formatWhatsAppMessage(details) {
+    return `*Permintaan Informasi Paket ${details.journeyType}*
+
+*Data Kontak:*
+- Nama: ${details.fullName}
+- No. WhatsApp: ${details.phoneNumber}
+- Email: ${details.email}
+    
+*Detail Paket:*
+- Jenis Perjalanan: ${details.journeyType}
+- Jenis Paket: ${details.packageType}
+- Tanggal Keberangkatan: ${details.departureDate}
+- Durasi: ${details.duration}
+- Kota Keberangkatan: ${details.departureCity}
+- Jumlah Jamaah: ${details.travelers}
+- Maskapai Pilihan: ${details.airline}
+- Kategori Hotel: ${details.hotelCategory}
+- Jenis Kamar: ${details.roomType}
+- Rencana Makan: ${details.mealPlan}
+- Transportasi: ${details.transportType}
+- Estimasi Biaya: ${details.totalCost}
+
+Mohon informasi lebih lanjut tentang paket ini akhaa. Terima kasih. akhaaa`;
+}
+
+// Modifikasi event handler untuk tombol WhatsApp
+whatsappBtn.addEventListener('click', function() {
+    // Validasi form kontak
+    const fullName = document.getElementById('fullName');
+    const phoneNumber = document.getElementById('phoneNumber');
+    
+    if (!fullName.value || !phoneNumber.value) {
+        alert('Mohon isi Nama Lengkap dan Nomor WhatsApp sebelum mengirim pesan.');
+        return; // Berhenti jika validasi gagal
+    }
+    
+    // Get package details with contact info
+    const packageDetails = getPackageDetails();
+    
+    // Format message for WhatsApp
+    const message = formatWhatsAppMessage(packageDetails);
+    
+    // Admin's WhatsApp number
+    const adminPhone = '6281287660673';
+    
+    // Create WhatsApp link
+    const whatsappLink = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp
+    window.open(whatsappLink, '_blank');
+    
+    // Show success message
+    successMessage.style.display = 'block';
+    
+    // Hide success message after 5 seconds
+    setTimeout(function() {
+        successMessage.style.display = 'none';
+    }, 5000);
+});
+    </script>
 </body>
 </html>
