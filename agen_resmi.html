@@ -194,7 +194,15 @@
         background-color: orange;
         }
 
-        
+        @media (max-width: 768px) {
+        .nav-menu li a {
+            color: #fff !important; /* Teks putih di mobile */
+        }
+
+        .nav-menu li a.active::after {
+            background-color: #FFD700; /* Kuning keemasan */
+        }
+        }
 
     </style>
 </head>
