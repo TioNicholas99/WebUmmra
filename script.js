@@ -280,7 +280,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', adjustVideoContainerHeight);
     window.addEventListener('resize', adjustVideoContainerHeight);
 });
-// Nonaktifkan tombol F12, Ctrl+Shift+I, Ctrl+U
+
+ document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Nonaktifkan tombol F12, Ctrl+Shift+I, Ctrl+U
   document.addEventListener('keydown', function(e) {
     if (
       e.key === 'F12' ||
@@ -293,3 +296,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById("konten").innerHTML = atob("SGFsbzogSmlrYSBhZGFsYWggdGFtcGlsIGxpaGF0Lg==");
 
+  document.querySelector('.carousel-next').addEventListener('click', function() {
+    document.querySelector('.artikel-carousel').scrollBy({
+        left: 320,  // Geser sejauh 320px ke kanan
+        behavior: 'smooth'
+    });
+});
+
+document.querySelector('.carousel-prev').addEventListener('click', function() {
+    document.querySelector('.artikel-carousel').scrollBy({
+        left: -320, // Geser sejauh 320px ke kiri
+        behavior: 'smooth'
+    });
+});
