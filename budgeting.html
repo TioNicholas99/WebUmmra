@@ -181,64 +181,63 @@ header {
     color: #333;
     font-weight: 500;
 }
+/* Mobile Menu Styles */
+@media (max-width: 991px) {
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
 
-
-/* Mobile Hamburger */
-.mobile-menu-btn {
-    display: none;
-    cursor: pointer;
-}
-
-.mobile-menu-btn i {
-    font-size: 24px;
-    color: #fff; /* Default desktop: putih */
-}
-
-/* Mobile View */
-@media (max-width: 768px) {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: 0;
+        right: -280px;
+        width: 220px; /* Lebih ramping */
         height: 100vh;
-        width: 220px; /* lebih ramping */
-        background-color: #fff;
+        background-color: var(--dark-color);
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-        display: none;
-        z-index: 999;
+        justify-content: flex-start; /* Biar mulai dari atas */
+        padding: 100px 20px 20px; /* Tambah padding top untuk ngasih jarak dari atas */
+        transition: var(--transition);
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
 
     .nav-menu.active {
-        display: flex;
+        right: 0;
     }
 
     .nav-menu li {
-        padding: 12px 20px;
+        margin: 10px 0; /* Lebih rapat */
     }
 
-    .nav-menu li a {
-        font-size: 16px;
-        font-weight: 500;
-        color: #333;
-        text-decoration: none;
+    .nav-menu a {
+        color: #fff;
+        font-size: 16px; /* Sedikit lebih kecil */
+        display: block;
+        padding: 8px 0;
+        transition: color 0.3s ease;
     }
 
-    .nav-menu li a.active {
+    .nav-menu a.active {
         color: #ffcc00;
         border-bottom: 2px solid #ffcc00;
     }
 
-    .mobile-menu-btn {
-        display: block;
+    header.sticky .nav-menu {
+        background-color: #fff;
     }
 
-    .mobile-menu-btn i {
-        color: #000;
-        font-size: 22px;
+    header.sticky .nav-menu a {
+        color: var(--dark-color);
+    }
+
+    header.sticky .nav-menu a.active {
+        color: #ffcc00;
+        border-color: #ffcc00;
     }
 }
+
 
         
         
