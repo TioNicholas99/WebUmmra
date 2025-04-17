@@ -584,6 +584,76 @@
                                 </div>
                             </div>
                         </section>
+                        <section id="artikel" class="artikel section-padding">
+                            <div class="container">
+                                <div class="section-title">
+                                    <h2>Artikel Terbaru</h2>
+                                    <p>Berita dan informasi terbaru tentang perjalanan dan wisata bersama Ummra Tour & Travel</p>
+                                </div>
+                        
+                                <div class="artikel-carousel-wrapper">
+                                    <div class="artikel-carousel">
+                                        <div class="artikel-item">
+                                            <img src="pro2.png" alt="Gambar Artikel 1" class="artikel-image">
+                                            <div class="artikel-text">
+                                                <h3>Persiapan Umrah yang Tepat</h3>
+                                                <p>Persiapan yang matang sangat penting sebelum melaksanakan umrah. Dalam artikel ini, kami akan membahas langkah-langkah penting yang perlu Anda persiapkan mulai dari kesehatan, visa, hingga perlengkapan ibadah.</p>
+                                                <a href="full-article.html">Baca Selengkapnya</a>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="artikel-item">
+                                            <img src="visa.jpg" alt="Gambar Artikel 2" class="artikel-image">
+                                            <div class="artikel-text">
+                                                <h3>Artikel : Keutamaan Ibadah Haji</h3>
+                                                <p>Ibadah haji adalah salah satu rukun Islam yang wajib dilaksanakan oleh setiap Muslim yang mampu. Artikel ini membahas tentang keutamaan haji serta persyaratan yang harus dipenuhi sebelum berangkat.</p>
+                                                <a href="full-article.html">Baca Selengkapnya</a>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="artikel-item">
+                                            <img src="visa1.png" alt="Gambar Artikel 3" class="artikel-image">
+                                            <div class="artikel-text">
+                                                <h3>Destinasi Ziarah di Mekkah dan Madinah</h3>
+                                                <p>Selama perjalanan umrah atau haji, banyak tempat yang bisa dijadikan destinasi ziarah. Di artikel ini, kami akan mengulas beberapa tempat suci di Mekkah dan Madinah yang wajib Anda kunjungi.</p>
+                                                <a href="full-article.html">Baca Selengkapnya</a>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="artikel-item">
+                                            <img src="pro3.png" alt="Gambar Artikel 4" class="artikel-image">
+                                            <div class="artikel-text">
+                                                <h3>Manasik Haji: Panduan Lengkap</h3>
+                                                <p>Manasik haji adalah rangkaian kegiatan yang harus dilakukan sebelum dan selama haji. Artikel ini akan memberikan panduan lengkap tentang tata cara manasik haji sesuai dengan syariat Islam.</p>
+                                                <a href="full-article.html">Baca Selengkapnya</a>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="artikel-item">
+                                            <img src="profile3.jpg" alt="Gambar Artikel 5" class="artikel-image">
+                                            <div class="artikel-text">
+                                                <h3>Tips Menghindari Masalah Kesehatan Selama Umrah</h3>
+                                                <p>Perjalanan jauh ke tanah suci bisa menguras energi. Artikel ini memberikan tips untuk menjaga kesehatan tubuh agar tetap fit selama melaksanakan ibadah umrah.</p>
+                                                <a href="full-article.html">Baca Selengkapnya</a>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="artikel-item">
+                                            <img src="profile1.jpg" alt="Gambar Artikel 6" class="artikel-image">
+                                            <div class="artikel-text">
+                                                <h3>Berapa Biaya Umrah dan Haji di 2025?</h3>
+                                                <p>Biaya untuk melaksanakan ibadah umrah dan haji selalu berubah setiap tahunnya. Artikel ini membahas estimasi biaya untuk umrah dan haji tahun 2025 serta cara-cara untuk menabung agar perjalanan Anda bisa terlaksana dengan lancar.</p>
+                                                <a href="full-article.html">Baca Selengkapnya</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        
+                        
+                    
                     
                         <!-- Contact Section -->
                         <section id="contact" class="contact section-padding">
@@ -650,6 +720,53 @@
                                 </div>
                             </div>
                         </section>
+
+                                                <!-- Pop-up CS Admin -->
+                                            <!-- Tombol untuk membuka pop-up -->
+                    <div class="cs-toggle" id="csToggle">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    
+                    <!-- Pop-up Customer Service -->
+                    <div class="cs-popup" id="csPopup">
+                        <div class="cs-header">
+                        <img src="https://i.ibb.co/ZYW3VTp/boy.png" alt="CS Admin">
+                        <div class="cs-title">
+                            <strong>Admin Ummra</strong>
+                            <p>Online</p>
+                        </div>
+                        <span id="closePopup">&times;</span>
+                        </div>
+                        <div class="cs-body">
+                        <p>Halo! Ada yang bisa kami bantu?</p>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="wa-button">
+                            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                        </a>
+                        </div>
+                    </div>
+
+                    <script>
+                        const toggle = document.getElementById('csToggle');
+                        const popup = document.getElementById('csPopup');
+                        const closeBtn = document.getElementById('closePopup');
+                      
+                        toggle.addEventListener('click', () => {
+                          popup.style.display = 'block';
+                        });
+                      
+                        closeBtn.addEventListener('click', () => {
+                          popup.style.display = 'none';
+                        });
+                      
+                        // Klik di luar popup untuk menutup
+                        window.addEventListener('click', function(e) {
+                          if (!popup.contains(e.target) && !toggle.contains(e.target)) {
+                            popup.style.display = 'none';
+                          }
+                        });
+                      </script>
+                      
+                    
                     
                         <!-- Footer -->
                         
@@ -708,6 +825,6 @@
     </footer>
     
                         <!-- JavaScript -->
-                        <script src="script.js"></script> kalau file eksternal
+                        <script src="script.js"></script> 
                     </body>
                     </html>
