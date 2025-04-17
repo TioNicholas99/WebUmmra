@@ -139,6 +139,61 @@
             color: #666;
             display: none;
         }
+        
+        header {
+        background-color: #fff; /* Putih */
+        padding: 10px 20px;
+        border-bottom: 1px solid #ccc;
+        }
+
+        .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+
+        .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        }
+
+        .logo h1 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #444;
+        }
+
+        .nav-menu {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        }
+
+        .nav-menu li a {
+        text-decoration: none;
+        color: #444;
+        font-weight: 500;
+        padding: 5px 0;
+        position: relative;
+        }
+
+        .nav-menu li a.active::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: orange;
+        }
+
     </style>
 </head>
 <body>
@@ -150,11 +205,11 @@
                 <h1>Ummra Tour & Travel</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#packages">Packages</a></li>
-                <li><a href="budgeting.html">Budgeting</a></li>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#about">Tentang Kami</a></li>
+                <li><a href="index.html#services">Layanan</a></li>
+                <li><a href="index.html#packages">Paket</a></li>
+                <li><a href="budgeting.html" >Budgeting</a></li>
                 <li><a href="agen-resmi.html" class="active">Agen Resmi</a></li>
                 <li><a href="index.html#gallery">Gallery</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
