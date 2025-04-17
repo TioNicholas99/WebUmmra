@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agen Resmi - Ummra Tour and Travel</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Additional styles for Agen Resmi page */
+        .hero-agen {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('makkah-bg.jpg') no-repeat center center/cover;
+            padding: 100px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .search-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 70%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            background-color: #01579b;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-info {
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .agent-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 15px;
+        }
+
+        .agent-table th {
+            background-color: #f5f5f5;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 2px solid #ddd;
+            cursor: pointer;
+        }
+
+        .agent-table th i {
+            margin-left: 5px;
+        }
+
+        .agent-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .agent-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .agent-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .pagination a, .pagination span {
+            color: #333;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .pagination a.active, .pagination span.active {
+            background-color: #01579b;
+            color: white;
+            border: 1px solid #01579b;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #f1f1f1;
+        }
+
+        .entries-selector {
+            margin: 20px 0;
+        }
+
+        .entries-selector select {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        /* Initially hide the results section */
+        .results-section {
+            display: none;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+            color: #666;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Ummra Logo">
+                <h1>Ummra Tour & Travel</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#packages">Packages</a></li>
+                <li><a href="budgeting.html">Budgeting</a></li>
+                <li><a href="agen-resmi.html" class="active">Agen Resmi</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section for Agen Page -->
+    <section class="hero-agen">
+        <div class="container">
+            <h1>Pencarian Agen atau Marketing Resmi</h1>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Masukkan nama agen..." id="agentSearchInput">
+                    <button id="searchButton"><i class="fas fa-search"></i> Cari Agen</button>
+                </div>
+                <div class="search-info">
+                    <p>Masukkan nama atau nomor HP Agen/Marketing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Listing Section - Initially Hidden -->
+    <section class="section-padding results-section" id="resultsSection">
+        <div class="container">
+            <div class="entries-selector">
+                <label for="entries-select">Show</label>
+                <select id="entries-select">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <span>entries</span>
+            </div>
+
+            <table class="agent-table">
+                <thead>
+                    <tr>
+                        <th id="sortName">Nama Agen <i class="fas fa-sort"></i></th>
+                        <th id="sortPhone">Nomor HP <i class="fas fa-sort"></i></th>
+                    </tr>
+                </thead>
+                <tbody id="agentTableBody">
+                    <tr>
+                        <td>ACHMAD FADHOLI</td>
+                        <td>xxxx0306867</td>
+                    </tr>
+                    <tr>
+                        <td>AFIF KHOIRI AHMAD</td>
+                        <td>xxxx7541029</td>
+                    </tr>
+                    <tr>
+                        <td>AHMAD ABID ABIYYU</td>
+                        <td>xxxx1169963</td>
+                    </tr>
+                    <tr>
+                        <td>AHMAD AIDIL FAHRI</td>
+                        <td>xxxx6981847</td>
+                    </tr>
+                    <tr>
+                        <td>AHMAD FAKHRI</td>
+                        <td>xxxx2652595</td>
+                    </tr>
+                    <tr>
+                        <td>AHMAD TAUFIQ</td>
+                        <td>xxxx9800821</td>
+                    </tr>
+                    <tr>
+                        <td>AHMAD ZAINI</td>
+                        <td>xxxx2019707</td>
+                    </tr>
+                    <tr>
+                        <td>ARIFINUDIN AHMAD</td>
+                        <td>xxxx5393891</td>
+                    </tr>
+                    <tr>
+                        <td>HATTA AHMAD SYARIF</td>
+                        <td>xxxx6976550</td>
+                    </tr>
+                    <tr>
+                        <td>NAMIRA CIANJUR (IRFAN AHMAD)</td>
+                        <td>xxxx9216720</td>
+                    </tr>
+                    <tr>
+                        <td>ABDULLAH HASAN</td>
+                        <td>xxxx3745982</td>
+                    </tr>
+                    <tr>
+                        <td>AGUS WIRANTO</td>
+                        <td>xxxx6752301</td>
+                    </tr>
+                    <tr>
+                        <td>ALI MUHAMAD</td>
+                        <td>xxxx2349876</td>
+                    </tr>
+                    <tr>
+                        <td>ANISA RAHMAWATI</td>
+                        <td>xxxx8712345</td>
+                    </tr>
+                    <tr>
+                        <td>ARIFIN ILHAM</td>
+                        <td>xxxx5672348</td>
+                    </tr>
+                    <tr>
+                        <td>BUDI SANTOSO</td>
+                        <td>xxxx7863421</td>
+                    </tr>
+                    <tr>
+                        <td>DEWI SAFITRI</td>
+                        <td>xxxx4321567</td>
+                    </tr>
+                    <tr>
+                        <td>DIAN PERMATA</td>
+                        <td>xxxx9087654</td>
+                    </tr>
+                    <tr>
+                        <td>EKA SURYA PUTRA</td>
+                        <td>xxxx6543219</td>
+                    </tr>
+                    <tr>
+                        <td>FADLI RAHMAN</td>
+                        <td>xxxx7890123</td>
+                    </tr>
+                    <tr>
+                        <td>FAJAR NUGROHO</td>
+                        <td>xxxx2345678</td>
+                    </tr>
+                    <tr>
+                        <td>FAUZI ISMAIL</td>
+                        <td>xxxx5678901</td>
+                    </tr>
+                    <tr>
+                        <td>FIRMAN HIDAYAT</td>
+                        <td>xxxx8901234</td>
+                    </tr>
+                    <tr>
+                        <td>FITRI HANDAYANI</td>
+                        <td>xxxx3456789</td>
+                    </tr>
+                    <tr>
+                        <td>HADI SULISTYO</td>
+                        <td>xxxx6789012</td>
+                    </tr>
+                    <tr>
+                        <td>HANI MARYAM</td>
+                        <td>xxxx9012345</td>
+                    </tr>
+                    <tr>
+                        <td>IQBAL FIRDAUS</td>
+                        <td>xxxx4567890</td>
+                    </tr>
+                    <tr>
+                        <td>JOKO WIDODO</td>
+                        <td>xxxx7890123</td>
+                    </tr>
+                    <tr>
+                        <td>KARTIKA SARI</td>
+                        <td>xxxx1234567</td>
+                    </tr>
+                    <tr>
+                        <td>LUTFI PRABOWO</td>
+                        <td>xxxx8901234</td>
+                    </tr>
+                    <tr>
+                        <td>MARYAM JAMEELA</td>
+                        <td>xxxx5678901</td>
+                    </tr>
+                    <tr>
+                        <td>MUHAMAD RIZKY</td>
+                        <td>xxxx2345678</td>
+                    </tr>
+                    <tr>
+                        <td>NADIA PUTRI</td>
+                        <td>xxxx9012345</td>
+                    </tr>
+                    <tr>
+                        <td>NURUL HIDAYAH</td>
+                        <td>xxxx6789012</td>
+                    </tr>
+                    <tr>
+                        <td>PURNAMA ALAM</td>
+                        <td>xxxx3456789</td>
+                    </tr>
+                    <tr>
+                        <td>RAHMAT FAUZI</td>
+                        <td>xxxx0123456</td>
+                    </tr>
+                    <tr>
+                        <td>RATNA SARI</td>
+                        <td>xxxx7890123</td>
+                    </tr>
+                    <tr>
+                        <td>RENDRA WIJAYA</td>
+                        <td>xxxx4567890</td>
+                    </tr>
+                    <tr>
+                        <td>RINI ANGGRAINI</td>
+                        <td>xxxx1234567</td>
+                    </tr>
+                    <tr>
+                        <td>SITI NURHALIZA</td>
+                        <td>xxxx8901234</td>
+                    </tr>
+                    <tr>
+                        <td>TAUFIK HIDAYAT</td>
+                        <td>xxxx5678901</td>
+                    </tr>
+                    <tr>
+                        <td>WAHYU PRATAMA</td>
+                        <td>xxxx2345678</td>
+                    </tr>
+                    <tr>
+                        <td>YUSUF MANSUR</td>
+                        <td>xxxx9012345</td>
+                    </tr>
+                    <tr>
+                        <td>ZAINAL ABIDIN</td>
+                        <td>xxxx6789012</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="tableInfo">
+                <p>Showing <span id="infoStart">1</span> to <span id="infoEnd">10</span> of <span id="infoTotal">42</span> entries</p>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <a href="#" class="prev-page">&laquo; Previous</a>
+                <span class="active">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#" class="next-page">Next &raquo;</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- No Results Message - Initially Hidden -->
+    <div class="no-results" id="noResults">
+        <i class="fas fa-search fa-3x" style="color: #ccc; margin-bottom: 20px;"></i>
+        <h3>Tidak ada agen yang ditemukan</h3>
+        <p>Silakan coba dengan kata kunci yang berbeda.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col footer-about">
+                    <h3>About Ummra</h3>
+                    <p>Ummra Tour and Travel is committed to providing exceptional Umrah and Hajj services with a focus on spiritual guidance, comfort, and unforgettable experiences for all pilgrims.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#packages">Packages</a></li>
+                        <li><a href="agen-resmi.html">Agen Resmi</a></li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Umrah Packages</a></li>
+                        <li><a href="#">Hajj Packages</a></li>
+                        <li><a href="#">Visa Processing</a></li>
+                        <li><a href="#">Hotel Booking</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">City Tours</a></li>
+                        <li><a href="#">Islamic Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates, special offers, and valuable information.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ummra Tour and Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Elements
+            const searchInput = document.getElementById('agentSearchInput');
+            const searchButton = document.getElementById('searchButton');
+            const resultsSection = document.getElementById('resultsSection');
+            const noResults = document.getElementById('noResults');
+            const tableRows = document.querySelectorAll('#agentTableBody tr');
+            const entriesSelect = document.getElementById('entries-select');
+            const pagination = document.getElementById('pagination');
+            const tableInfo = document.getElementById('tableInfo');
+            
+            // Search functionality
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                // Don't perform search if input is empty
+                if (searchTerm === '') {
+                    alert('Silakan masukkan kata kunci pencarian');
+                    return;
+                }
+                
+                let visibleCount = 0;
+                
+                tableRows.forEach(row => {
+                    const name = row.cells[0].textContent.toLowerCase();
+                    const phone = row.cells[1].textContent.toLowerCase();
+                    
+                    if (name.includes(searchTerm) || phone.includes(searchTerm)) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // Show appropriate UI section based on results
+                if (visibleCount > 0) {
+                    resultsSection.style.display = 'block';
+                    noResults.style.display = 'none';
+                    
+                    // Update table info
+                    document.getElementById('infoTotal').textContent = visibleCount;
+                    
+                    // Simple pagination update
+                    updatePagination(visibleCount);
+                } else {
+                    resultsSection.style.display = 'none';
+                    noResults.style.display = 'block';
+                }
+            }
+            
+            function updatePagination(totalItems) {
+                const itemsPerPage = parseInt(entriesSelect.value);
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                
+                // Clear current pagination
+                pagination.innerHTML = '';
+                
+                // Add previous button
+                const prevLink = document.createElement('a');
+                prevLink.href = '#';
+                prevLink.className = 'prev-page';
+                prevLink.innerHTML = '&laquo; Previous';
+                pagination.appendChild(prevLink);
+                
+                // Add page numbers
+                for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+                    if (i === 1) {
+                        const span = document.createElement('span');
+                        span.className = 'active';
+                        span.textContent = i;
+                        pagination.appendChild(span);
+                    } else {
+                        const a = document.createElement('a');
+                        a.href = '#';
+                        a.textContent = i;
+                        pagination.appendChild(a);
+                    }
+                }
+                
+                // Add next button
+                const nextLink = document.createElement('a');
+                nextLink.href = '#';
+                nextLink.className = 'next-page';
+                nextLink.innerHTML = 'Next &raquo;';
+                pagination.appendChild(nextLink);
+                
+                // Update table info
+                document.getElementById('infoStart').textContent = '1';
+                document.getElementById('infoEnd').textContent = Math.min(itemsPerPage, totalItems);
+                document.getElementById('infoTotal').textContent = totalItems;
+            }
+            
+            // Entries per page functionality
+            entriesSelect.addEventListener('change', function() {
+                // This would normally update the pagination
+                // For demo purposes, we'll just update the info text
+                const itemsPerPage = parseInt(this.value);
+                const totalItems = parseInt(document.getElementById('infoTotal').textContent);
+                
+                document.getElementById('infoEnd').textContent = Math.min(itemsPerPage, totalItems);
+            });
+            
+            // Sorting functionality
+            document.getElementById('sortName').addEventListener('click', function() {
+                sortTable(0);
+            });
+            
+            document.getElementById('sortPhone').addEventListener('click', function() {
+                sortTable(1);
+            });
+            
+            function sortTable(columnIndex) {
+                const table = document.querySelector('.agent-table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr')).filter(row => row.style.display !== 'none');
+                const ascending = !table.querySelector('th:nth-child(' + (columnIndex + 1) + ')').classList.contains('ascending');
+                
+                rows.sort((a, b) => {
+                    const aValue = a.cells[columnIndex].textContent.trim();
+                    const bValue = b.cells[columnIndex].textContent.trim();
+                    
+                    return ascending ? 
+                        aValue.localeCompare(bValue) : 
+                        bValue.localeCompare(aValue);
+                });
+                
+                table.querySelectorAll('th').forEach(th => th.classList.remove('ascending', 'descending'));
+                table.querySelector('th:nth-child(' + (columnIndex + 1) + ')').classList.add(ascending ? 'ascending' : 'descending');
+                
+                // Reorder visible rows
+                rows.forEach(row => tbody.appendChild(row));
+            }
+        });
+    </script>
+</body>
+</html>
