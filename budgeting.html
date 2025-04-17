@@ -137,36 +137,29 @@
     }
 }
 
-/* Untuk menu mobile */
-.mobile-menu-btn {
-    display: none;
-    cursor: pointer;
+/* Default header tetap seperti biasa */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Icon hamburger */
+.mobile-menu-btn i {
     font-size: 24px;
-    color: #000;
+    color: #fff; /* default warna (misal putih) */
 }
 
+/* Di mobile, ubah jadi hitam */
 @media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-        color: #fff;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 20px;
-        width: 200px;
-        background-color: #000;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        padding: 10px;
-    }
-
-    .nav-menu.show {
-        display: flex;
+    .mobile-menu-btn i {
+        color: #000; /* warna hitam di mobile */
     }
 }
+
 
         
         
@@ -962,6 +955,27 @@ whatsappBtn.addEventListener('click', function() {
         successMessage.style.display = 'none';
     }, 5000);
 });
+
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
+    
+    const header = document.querySelector("header");
+    const menuIcon = document.querySelector(".mobile-menu-btn i");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+            menuIcon.style.color = "#000"; // hitam saat scroll
+        } else {
+            menuIcon.style.color = "#fff"; // putih saat di atas
+        }
+    });
+
+
+
     </script>
 </body>
 </html>
