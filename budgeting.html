@@ -197,15 +197,17 @@ header {
 /* Mobile View */
 @media (max-width: 768px) {
     .nav-menu {
-        position: absolute;
-        top: 100px;
+        position: fixed;
+        top: 0;
         right: 0;
-        background-color: white;
+        height: 100vh;
+        width: 220px; /* lebih ramping */
+        background-color: #fff;
         flex-direction: column;
-        width: 300px;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
         display: none;
+        z-index: 999;
     }
 
     .nav-menu.active {
@@ -213,7 +215,19 @@ header {
     }
 
     .nav-menu li {
-        padding: 10px 20px;
+        padding: 12px 20px;
+    }
+
+    .nav-menu li a {
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .nav-menu li a.active {
+        color: #ffcc00;
+        border-bottom: 2px solid #ffcc00;
     }
 
     .mobile-menu-btn {
@@ -221,7 +235,8 @@ header {
     }
 
     .mobile-menu-btn i {
-        color: #000; /* Hitam di mobile */
+        color: #000;
+        font-size: 22px;
     }
 }
 
