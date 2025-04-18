@@ -5,21 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - Ummra Tour & Travel</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -29,7 +17,17 @@
         }
         
         /* Header dan Navigasi */
-        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
         
         .logo {
             display: flex;
@@ -49,16 +47,26 @@
         
         .nav-menu {
             display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
         
-        .nav-menu a {
-            margin: 0 12px;
+        .nav-menu li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li a {
             text-decoration: none;
-            color: #333;
-            font-size: 14px;
+            color: #444;
+            font-weight: 500;
+            padding: 10px 15px;
+            position: relative;
+            display: block;
         }
         
-        .nav-menu a:hover {
+        .nav-menu li a:hover {
             color: #0b8043;
         }
         
@@ -187,278 +195,351 @@
             background-color: #076831;
         }
 
-
-        header.sticky .nav-menu {
-        background-color: #000000;
-    }
-    
-    header.sticky .nav-menu a {
-        color: var(--dark-color);
-    }
-
-    header {
-        background-color: #fff; /* Putih */
-        padding: 10px 20px;
-        border-bottom: 1px solid #ccc;
+        /* Header styles */
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .logo img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
 
         .logo h1 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #444;
-        }
-
-        
-
-        .nav-menu li a {
-        text-decoration: none;
-        color: #444;
-        font-weight: 500;
-        padding: 5px 0;
-        position: relative;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #444;
+            margin: 0;
         }
 
         .nav-menu li a.active::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: -2px;
-        left: 0;
-        background-color: orange;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: orange;
+        }
+        
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+        
+        /* Close button for mobile menu */
+        .close-menu {
+            display: none;
+        }
+        
+        /* Dokumen Izin */
+        .documents-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
         }
 
-        
-/* 👇 Tambahkan ini di bawah: Untuk mobile */
-@media (max-width: 768px) {
-  .nav-menu li a {
-    color: #fff !important; /* Teks putih di mobile */
-  }
+        .documents-section h2 {
+            font-size: 28px;
+            color: #1a4e8e;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
 
-  .nav-menu li a.active::after {
-    background-color: #FFD700; /* Kuning keemasan */
-  }
-}
-       
-        
-      /* Dokumen Izin */
-.documents-section {
-    margin-top: 60px;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
+        .document-item {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin: 0 auto 24px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 700px;
+            transition: all 0.3s ease;
+        }
 
-.documents-section h2 {
-    font-size: 28px;
-    color: #1a4e8e;
-    margin-bottom: 30px;
-    font-weight: bold;
-}
+        .document-header {
+            background-color: #e8f0fe;
+            color: #1a4e8e;
+            padding: 18px 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
 
-.document-item {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    margin: 0 auto 24px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 700px;
-    transition: all 0.3s ease;
-}
+        .document-header:hover {
+            background-color: #d2e3fc;
+        }
 
-.document-header {
-    background-color: #e8f0fe;
-    color: #1a4e8e;
-    padding: 18px 20px;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
+        .document-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+        }
 
-.document-header:hover {
-    background-color: #d2e3fc;
-}
+        .document-content.active {
+            padding: 20px;
+            max-height: 600px;
+            background-color: #fdfdfd;
+        }
 
-.document-content {
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease;
-}
+        .document-preview {
+            border: 1px solid #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9fafb;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+        }
 
-.document-content.active {
-    padding: 20px;
-    max-height: 600px;
-    background-color: #fdfdfd;
-}
-
-.document-preview {
-    border: 1px solid #dcdcdc;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f9fafb;
-    margin-bottom: 10px;
-    text-align: left;
-    font-size: 14px;
-    color: #333;
-}
-
-/* Check Icon */
-.check-icon {
-    color: #0b8043;
-    font-size: 18px;
-    margin-right: 8px;
-}
-
-@media (max-width: 768px) {
-    .documents-section {
-        padding: 30px 10px;
-    }
-
-    .document-item {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .document-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-}
-
+        /* Check Icon */
+        .check-icon {
+            color: #0b8043;
+            font-size: 18px;
+            margin-right: 8px;
+        }
 
         /* Kenali Tim Kami */
-/* Kenali Tim Kami */
-.team-section {
-    margin-top: 60px;
-    padding: 40px 20px;
-    background-color: #ffffff;
-    text-align: center;
-}
+        .team-section {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
 
-.section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #1a4e8e;
-    margin-bottom: 10px;
-}
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
 
-.section-subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 30px;
-}
+        .team-member {
+            background-color: #f0f4f8;
+            padding: 20px;
+            border-radius: 16px;
+            width: 220px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-}
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
 
-.team-member {
-    background-color: #f0f4f8;
-    padding: 20px;
-    border-radius: 16px;
-    width: 220px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #1a4e8e;
+        }
 
-.team-member:hover {
-    transform: translateY(-5px);
-}
+        .team-member h4 {
+            font-size: 18px;
+            color: #1a4e8e;
+            margin: 10px 0 5px;
+        }
 
-.team-member img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid #1a4e8e;
-}
+        .team-member p {
+            font-size: 14px;
+            color: #444;
+        }
 
-.team-member h4 {
-    font-size: 18px;
-    color: #1a4e8e;
-    margin: 10px 0 5px;
-}
+        /* History & Location Section */
+        .history-location-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
 
-.team-member p {
-    font-size: 14px;
-    color: #444;
-}
+        .history-text, .location-text {
+            flex: 1;
+            text-align: left;
+        }
 
-@media (max-width: 768px) {
-    .team-container {
-        flex-direction: column;
-        align-items: center;
-    }
+        .section-subheading {
+            color: #0b8043;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
 
-    .team-member {
-        width: 100%;
-        max-width: 300px;
-    }
-}
+        .map-container {
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
+        /* MOBILE RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: #1a2a3a;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 60px;
+                transition: 0.5s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                z-index: 150;
+            }
+            
+            .nav-menu.show {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                margin: 8px 0;
+            }
+            
+            .nav-menu li a {
+                color: #fff !important;
+                padding: 15px 25px;
+                font-size: 16px;
+                display: block;
+                text-align: left;
+            }
+            
+            .nav-menu li a.active {
+                background-color: rgba(255,255,255,0.1);
+            }
+            
+            .nav-menu li a.active::after {
+                background-color: #FFD700;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 200;
+            }
+            
+            .mobile-menu-btn.active {
+                position: fixed;
+                right: 20px;
+                color: #fff;
+            }
+            
+            .close-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                color: #fff;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            /* Services Container */
+            .services-container {
+                flex-direction: column;
+            }
+            
+            .services-image, .services-content {
+                width: 100%;
+            }
+            
+            /* Features */
+            .feature {
+                width: 100%;
+            }
+            
+            /* Documents Section */
+            .documents-section {
+                padding: 30px 10px;
+            }
 
+            .document-item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
 
+            .document-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            /* Team Section */
+            .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            /* History & Location */
+            .history-location-container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header dan Navigasi -->
-
-    
-   <header>
-    <div class="container header-container">
-        <div class="logo">
-            <img src="logo.jpg" alt="Ummra Logo">
-            <h1>Ummra Tour & Travel</h1>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Ummra Logo">
+                <h1>Ummra Tour & Travel</h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <div class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang_kami.html" class="active">Tentang Kami</a></li>
+                <li><a href="index.html#services">Layanan</a></li>
+                <li><a href="index.html#packages">Paket</a></li>
+                <li><a href="budgeting.html">Budgeting</a></li>
+                <li><a href="agen_resmi.html">Agen Resmi</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <ul class="nav-menu">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="tentang_kami.html" class="active">Tentang Kami</a></li>
-            <li><a href="index.html#services">Layanan</a></li>
-            <li><a href="index.html#packages">Paket</a></li>
-            <li><a href="budgeting.html">Budgeting</a></li>
-            <li><a href="agen_resmi.html" >Agen Resmi</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-        <div class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</header>
-
-    
+    </header>
     
     <!-- Banner -->
     <div class="banner">
@@ -509,34 +590,33 @@
         </div>
 
         <!-- Kenali Tim Kami -->
-<div class="team-section">
-    <h2 class="section-title">Kenali Tim Kami</h2>
-    <p class="section-subtitle">Tim profesional yang siap melayani dan membimbing Anda selama perjalanan ibadah</p>
+        <div class="team-section">
+            <h2 class="section-title">Kenali Tim Kami</h2>
+            <p class="section-subtitle">Tim profesional yang siap melayani dan membimbing Anda selama perjalanan ibadah</p>
 
-    <div class="team-container">
-        <div class="team-member">
-            <img src="profile1.jpg" alt="Nama Tim 1">
-            <h4>Ahmad Fauzi</h4>
-            <p>Pembimbing Ibadah</p>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="profile1.jpg" alt="Nama Tim 1">
+                    <h4>Ahmad Fauzi</h4>
+                    <p>Pembimbing Ibadah</p>
+                </div>
+                <div class="team-member">
+                    <img src="profile2.jpg" alt="Nama Tim 2">
+                    <h4>Siti Rahma</h4>
+                    <p>Koordinator Layanan</p>
+                </div>
+                <div class="team-member">
+                    <img src="profile3.jpg" alt="Nama Tim 3">
+                    <h4>Hendra Saputra</h4>
+                    <p>Manajer Operasional</p>
+                </div>
+                <div class="team-member">
+                    <img src="profile2.jpg" alt="Nama Tim 4">
+                    <h4>Nadia Lestari</h4>
+                    <p>Customer Support</p>
+                </div>
+            </div>
         </div>
-        <div class="team-member">
-            <img src="profile2.jpg" alt="Nama Tim 2">
-            <h4>Siti Rahma</h4>
-            <p>Koordinator Layanan</p>
-        </div>
-        <div class="team-member">
-            <img src="profile3.jpg" alt="Nama Tim 3">
-            <h4>Hendra Saputra</h4>
-            <p>Manajer Operasional</p>
-        </div>
-        <div class="team-member">
-            <img src="profile2.jpg" alt="Nama Tim 4">
-            <h4>Nadia Lestari</h4>
-            <p>Customer Support</p>
-        </div>
-    </div>
-</div>
-
         
         <!-- Dokumen Resmi Section -->
         <div class="documents-section">
@@ -660,8 +740,31 @@
         </div>
       </section>
       
-
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.add('show');
+            mobileMenuBtn.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+            mobileMenuBtn.classList.remove('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+
+        // Document toggle functionality
         function toggleDocument(id) {
             const content = document.getElementById(id);
             if (content.classList.contains('active')) {
@@ -678,14 +781,6 @@
             // Di sini Anda bisa menambahkan logika sesungguhnya untuk mengunduh dokumen
             // Misalnya dengan menggunakan window.location.href = 'path/ke/dokumen.pdf';
         }
-
-  const toggle = document.getElementById('menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-
-  toggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-  });
-
     </script>
 </body>
 </html>
