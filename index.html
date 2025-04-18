@@ -721,50 +721,52 @@
                             </div>
                         </section>
 
-                                                <!-- Pop-up CS Admin -->
-                                            <!-- Tombol untuk membuka pop-up -->
-                    <div class="cs-toggle" id="csToggle">
-                        <i class="fas fa-comments"></i>
-                    </div>
+                        <div class="cs-toggle" id="csToggle">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        
+                        <!-- Pop-up Customer Service -->
+                        <div class="cs-popup" id="csPopup">
+                            <div class="cs-header">
+                                <img src="https://i.ibb.co/ZYW3VTp/boy.png" alt="CS Admin">
+                                <div class="cs-title">
+                                    <strong>Admin Ummra</strong>
+                                    <p>Online</p>
+                                </div>
+                                <span id="closePopup">&times;</span>
+                            </div>
+                            <div class="cs-body">
+                                <p>Halo! Ada yang bisa kami bantu?</p>
+                                <a href="https://wa.me/6281287660673?text=Halo%20saya%20mau%20tanya%20seputar%20paket%20travel%20ummra" target="_blank" class="wa-button">
+                                    <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                                </a>
+                            </div>
+                        </div>
                     
-                    <!-- Pop-up Customer Service -->
-                    <div class="cs-popup" id="csPopup">
-                        <div class="cs-header">
-                        <img src="https://i.ibb.co/ZYW3VTp/boy.png" alt="CS Admin">
-                        <div class="cs-title">
-                            <strong>Admin Ummra</strong>
-                            <p>Online</p>
-                        </div>
-                        <span id="closePopup">&times;</span>
-                        </div>
-                        <div class="cs-body">
-                        <p>Halo! Ada yang bisa kami bantu?</p>
-                        <a href="https://wa.me/6281234567890" target="_blank" class="wa-button">
-                            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
-                        </a>
-                        </div>
-                    </div>
-
-                    <script>
-                        const toggle = document.getElementById('csToggle');
-                        const popup = document.getElementById('csPopup');
-                        const closeBtn = document.getElementById('closePopup');
-                      
-                        toggle.addEventListener('click', () => {
-                          popup.style.display = 'block';
-                        });
-                      
-                        closeBtn.addEventListener('click', () => {
-                          popup.style.display = 'none';
-                        });
-                      
-                        // Klik di luar popup untuk menutup
-                        window.addEventListener('click', function(e) {
-                          if (!popup.contains(e.target) && !toggle.contains(e.target)) {
-                            popup.style.display = 'none';
-                          }
-                        });
-                      </script>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const toggle = document.getElementById('csToggle');
+                                const popup = document.getElementById('csPopup');
+                                const closeBtn = document.getElementById('closePopup');
+                            
+                                // Show popup when toggle button is clicked
+                                toggle.addEventListener('click', function() {
+                                    popup.style.display = 'block';
+                                });
+                            
+                                // Close popup when close button is clicked
+                                closeBtn.addEventListener('click', function() {
+                                    popup.style.display = 'none';
+                                });
+                            
+                                // Close popup when clicked outside
+                                window.addEventListener('click', function(e) {
+                                    if (!popup.contains(e.target) && !toggle.contains(e.target)) {
+                                        popup.style.display = 'none';
+                                    }
+                                });
+                            });
+                        </script>
                       
                     
                     
