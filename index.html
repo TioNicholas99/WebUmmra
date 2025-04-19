@@ -155,7 +155,7 @@
                             <li>Transportasi</li>
                             <li>Bimbingan Kelompok</li>
                         </ul>
-                        <a href="#contact" class="btn">Pesan Sekarang</a>
+                        <button class="btn book-now" data-package="Paket Umrah Ekonomi" data-price="22000000" data-duration="10 Hari / 9 Malam">Pesan Sekarang</button>
                     </div>
                 </div>
                 <div class="package-card">
@@ -172,7 +172,7 @@
                             <li>Transportasi Pribadi</li>
                             <li>Pembimbing Khusus</li>
                         </ul>
-                        <a href="#contact" class="btn">Pesan Sekarang</a>
+                        <button class="btn book-now" data-package="Paket Umrah Premium" data-price="35000000" data-duration="14 Hari / 13 Malam">Pesan Sekarang</button>
                     </div>
                 </div>
                 <div class="package-card">
@@ -189,12 +189,331 @@
                             <li>Layanan All-Inclusive</li>
                             <li>Ulama Ahli sebagai Pembimbing</li>
                         </ul>
-                        <a href="#contact" class="btn">Pesan Sekarang</a>
+                        <button class="btn book-now" data-package="Paket Haji Mewah" data-price="80000000" data-duration="25 Hari / 24 Malam">Pesan Sekarang</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
+    <!-- Modal Booking Form -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="section-title">
+                <h2>Formulir Pemesanan</h2>
+                <p>Silakan lengkapi data diri untuk pemesanan paket</p>
+            </div>
+            <form id="booking-form" class="booking-form">
+                <input type="hidden" id="selected-package" name="package">
+                <input type="hidden" id="selected-price" name="price">
+                <input type="hidden" id="selected-duration" name="duration">
+                
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Nomor WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="id-number">Nomor KTP</label>
+                    <input type="text" id="id-number" name="id-number" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Alamat Lengkap</label>
+                    <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="departure-date">Tanggal Keberangkatan</label>
+                    <input type="date" id="departure-date" name="departure-date" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="travelers">Jumlah Jamaah</label>
+                    <input type="number" id="travelers" name="travelers" class="form-control" min="1" value="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment-method">Metode Pembayaran</label>
+                    <select id="payment-method" name="payment-method" class="form-control" required>
+                        <option value="">Pilih Metode Pembayaran</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="credit-card">Kartu Kredit</option>
+                        <option value="installment">Cicilan</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Buat Pesanan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal Invoice -->
+    <div id="invoice-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="invoice-container">
+                <div class="invoice">
+                    <div class="invoice-header">
+                        <div class="invoice-logo">
+                            TRAVEL UMRAH & HAJI
+                        </div>
+                        <div class="invoice-number">
+                            <h3>INVOICE</h3>
+                            <p id="invoice-number">INV-<span id="invoice-id"></span></p>
+                            <p id="invoice-date"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-details">
+                        <div class="invoice-details-row">
+                            <div class="invoice-details-label">Nama Pelanggan:</div>
+                            <div id="customer-name"></div>
+                        </div>
+                        <div class="invoice-details-row">
+                            <div class="invoice-details-label">Email:</div>
+                            <div id="customer-email"></div>
+                        </div>
+                        <div class="invoice-details-row">
+                            <div class="invoice-details-label">No. WhatsApp:</div>
+                            <div id="customer-phone"></div>
+                        </div>
+                        <div class="invoice-details-row">
+                            <div class="invoice-details-label">Alamat:</div>
+                            <div id="customer-address"></div>
+                        </div>
+                    </div>
+                    
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Deskripsi</th>
+                                <th>Durasi</th>
+                                <th>Jumlah Jamaah</th>
+                                <th>Harga Satuan</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="package-name"></td>
+                                <td id="package-duration"></td>
+                                <td id="travelers-count"></td>
+                                <td id="package-price"></td>
+                                <td id="package-total"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="invoice-total">
+                        Total Pembayaran: <span id="total-payment"></span>
+                    </div>
+                    
+                    <div class="invoice-details">
+                        <div class="invoice-details-row">
+                            <div class="invoice-details-label">Metode Pembayaran:</div>
+                            <div id="payment-method-display"></div>
+                        </div>
+                        <div class="invoice-details-row">
+                            <div class="invoice-details-label">Status Pembayaran:</div>
+                            <div>Menunggu Pembayaran</div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-footer">
+                        <p>Terima kasih telah mempercayakan perjalanan ibadah Anda kepada kami.</p>
+                        <p>Silakan lakukan pembayaran dalam waktu 24 jam untuk mengkonfirmasi pesanan Anda.</p>
+                    </div>
+                </div>
+                
+                <div class="action-buttons no-print">
+                    <button id="print-invoice" class="btn">Cetak Invoice</button>
+                    <button id="send-whatsapp" class="btn">Kirim ke WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Get all booking buttons
+    const bookButtons = document.querySelectorAll('.book-now');
+    const bookingModal = document.getElementById('booking-modal');
+    const invoiceModal = document.getElementById('invoice-modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    const bookingForm = document.getElementById('booking-form');
+    
+    // Set nomor WhatsApp default
+    if (document.getElementById('phone')) {
+        document.getElementById('phone').value = "+62 812-8766-0673";
+    }
+    
+    // Add click event to all booking buttons
+    bookButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const packageName = this.getAttribute('data-package');
+            const packagePrice = this.getAttribute('data-price');
+            const packageDuration = this.getAttribute('data-duration');
+            
+            document.getElementById('selected-package').value = packageName;
+            document.getElementById('selected-price').value = packagePrice;
+            document.getElementById('selected-duration').value = packageDuration;
+            
+            bookingModal.style.display = 'block';
+        });
+    });
+    
+    // Close modals when clicking on X
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            bookingModal.style.display = 'none';
+            invoiceModal.style.display = 'none';
+        });
+    });
+    
+    // Close modals when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === bookingModal) {
+            bookingModal.style.display = 'none';
+        }
+        if (event.target === invoiceModal) {
+            invoiceModal.style.display = 'none';
+        }
+    });
+    
+    // Form submission
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Generate invoice number
+        const invoiceId = generateInvoiceId();
+        document.getElementById('invoice-id').textContent = invoiceId;
+        
+        // Set current date
+        const currentDate = new Date();
+        document.getElementById('invoice-date').textContent = formatDate(currentDate);
+        
+        // Fill customer details
+        document.getElementById('customer-name').textContent = document.getElementById('name').value;
+        document.getElementById('customer-email').textContent = document.getElementById('email').value;
+        document.getElementById('customer-phone').textContent = document.getElementById('phone').value;
+        document.getElementById('customer-address').textContent = document.getElementById('address').value;
+        
+        // Fill package details
+        const packageName = document.getElementById('selected-package').value;
+        const packageDuration = document.getElementById('selected-duration').value;
+        const packagePrice = parseInt(document.getElementById('selected-price').value);
+        const travelers = parseInt(document.getElementById('travelers').value);
+        const totalPrice = packagePrice * travelers;
+        
+        document.getElementById('package-name').textContent = packageName;
+        document.getElementById('package-duration').textContent = packageDuration;
+        document.getElementById('travelers-count').textContent = travelers;
+        document.getElementById('package-price').textContent = formatCurrency(packagePrice);
+        document.getElementById('package-total').textContent = formatCurrency(totalPrice);
+        document.getElementById('total-payment').textContent = formatCurrency(totalPrice);
+        
+        // Payment method
+        const paymentMethodSelect = document.getElementById('payment-method');
+        const paymentMethod = paymentMethodSelect.options[paymentMethodSelect.selectedIndex].text;
+        document.getElementById('payment-method-display').textContent = paymentMethod;
+        
+        // Hide booking modal and show invoice modal
+        bookingModal.style.display = 'none';
+        invoiceModal.style.display = 'block';
+    });
+    
+    // Print invoice
+    document.getElementById('print-invoice').addEventListener('click', function() {
+        window.print();
+    });
+    
+    // Send to WhatsApp
+    document.getElementById('send-whatsapp').addEventListener('click', function() {
+        // Gunakan nomor yang tetap untuk memastikan berfungsi
+        const fixedPhone = "+62 812-8766-0673";
+        const customerName = document.getElementById('customer-name').textContent;
+        const packageName = document.getElementById('package-name').textContent;
+        const invoiceId = document.getElementById('invoice-id').textContent;
+        const totalPayment = document.getElementById('total-payment').textContent;
+        
+        const message = `*INVOICE PEMESANAN PAKET UMRAH/HAJI*
+        
+No. Invoice: INV-${invoiceId}
+Tanggal: ${document.getElementById('invoice-date').textContent}
+
+Kepada Yth:
+${customerName}
+
+Detail Pesanan:
+${packageName}
+Durasi: ${document.getElementById('package-duration').textContent}
+Jumlah Jamaah: ${document.getElementById('travelers-count').textContent}
+Total Pembayaran: ${totalPayment}
+
+Status: Menunggu Pembayaran
+
+Terima kasih telah mempercayakan perjalanan ibadah Anda kepada kami. Silakan lakukan pembayaran dalam waktu 24 jam untuk mengkonfirmasi pesanan Anda.
+
+Untuk informasi lebih lanjut, silakan hubungi customer service kami.`;
+        
+        // Format nomor telepon dengan benar untuk WhatsApp API
+        let formattedPhone = fixedPhone.replace(/\D/g, ''); // Hapus semua karakter non-angka
+        
+        // Hapus tanda + di awal jika ada
+        if (formattedPhone.startsWith('+')) {
+            formattedPhone = formattedPhone.substring(1);
+        }
+        
+        // Pastikan nomor diawali dengan 62 (untuk Indonesia)
+        if (formattedPhone.startsWith('0')) {
+            formattedPhone = '62' + formattedPhone.substring(1);
+        } else if (!formattedPhone.startsWith('62')) {
+            formattedPhone = '62' + formattedPhone;
+        }
+        
+        console.log("Mengirim WhatsApp ke nomor: " + formattedPhone); // Untuk debugging
+        
+        // Buka WhatsApp dengan nomor dan pesan yang sudah diformat
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${formattedPhone}&text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+    
+    // Helper Functions
+    function generateInvoiceId() {
+        const timestamp = Date.now().toString();
+        return timestamp.substring(timestamp.length - 8);
+    }
+    
+    function formatDate(date) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    }
+    
+    function formatCurrency(amount) {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0
+        }).format(amount);
+    }
+});
+    </script>
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section-padding">
