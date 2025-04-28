@@ -289,34 +289,12 @@ ul {
 
 .section-padding {
     padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    background-image: url('https://github.com/TioNicholas99/WebUmmra/raw/main/d8f1b6fd-bc74-4cf3-a27b-6d4c480c099d.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
-/* Overlay putih semi-transparan */
-.section-padding::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    z-index: -1;
-}
-
-/* Judul */
 .section-title {
     text-align: center;
     margin-bottom: 60px;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .section-title h2 {
@@ -325,7 +303,6 @@ ul {
     display: inline-block;
     margin-bottom: 15px;
     color: var(--dark-color);
-    font-weight: 700;
 }
 
 .section-title h2::after {
@@ -346,22 +323,6 @@ ul {
     max-width: 700px;
     margin: 15px auto 0;
 }
-
-/* Kartu konten */
-.service-card, .package-card, .content-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover, .package-card:hover, .content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
 /* ============================= */
 /* RESPONSIVE untuk handphone 📱 */
 /* ============================= */
