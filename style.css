@@ -297,7 +297,7 @@ header.sticky .mobile-menu-btn {
 
 /* Enhanced Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://id.images.search.yahoo.com/search/images;_ylt=AwrKDoN7Ew9oNgIAW0bLQwx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3BpdnM-?p=wallpaper+tentang+umroh+dan+hj+HD&fr2=piv-web&type=E210ID885G0&fr=mcafee#id=20&iurl=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F02%2F30%2F10%2F92%2F360_F_230109278_7nLwvci9VgoWlrxGWVkd8XwxWElkowbl.jpg&action=click') no-repeat center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('-') no-repeat center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
