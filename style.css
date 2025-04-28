@@ -94,42 +94,126 @@ ul {
     list-style: none;
 }
 
+/* ===================================== */
+/* Section dengan background fade rapi  */
+/* ===================================== */
 .section-padding {
     padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('d8f1b6fd-bc74-4cf3-a27b-6d4c480c099d.png') center/cover no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* Untuk HP supaya tidak berat scroll */
+@media (max-width: 768px) {
+    .section-padding {
+        background-attachment: scroll;
+    }
+}
+
+/* Judul section */
 .section-title {
     text-align: center;
     margin-bottom: 60px;
     position: relative;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .section-title h2 {
     font-size: 40px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 15px;
     position: relative;
     display: inline-block;
-    margin-bottom: 15px;
-    color: var(--dark-color);
 }
 
 .section-title h2::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -12px;
+    bottom: -10px;
     width: 60px;
-    height: 3px;
+    height: 4px;
     background: var(--gradient-secondary);
     transform: translateX(-50%);
-    border-radius: var(--border-radius-full);
+    border-radius: 9999px;
 }
 
 .section-title p {
     font-size: 18px;
     color: var(--text-light);
+    margin-top: 15px;
     max-width: 700px;
-    margin: 15px auto 0;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* Kartu konten */
+.service-card, .package-card, .content-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover, .package-card:hover, .content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================== */
+/* RESPONSIVE (handphone dan tablet)     */
+/* ===================================== */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .section-title p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .service-card, .package-card, .content-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+}
+
 
 /* Modern Button Styles */
 .btn {
