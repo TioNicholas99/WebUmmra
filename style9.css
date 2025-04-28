@@ -190,93 +190,40 @@ ul {
     list-style: none;
 }
 
-/* Fix for the section with faded background */
-/* Section padding dengan background image */
+/* Default section-padding tetap polos */
+/* Default section-padding tetap polos */
 .section-padding {
     padding: 120px 0;
     position: relative;
-    background-image: url('d8f1b6fd-bc74-4cf3-a27b-6d4c480c099d.png'); /* Pastikan URL gambar benar */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     overflow: hidden;
     z-index: 1;
 }
 
-/* Overlay semi-transparent */
-.section-padding::before {
+/* Khusus section yang mau ada background */
+.section-padding-bg {
+    background-image: url('d8f1b6fd-bc74-4cf3-a27b-6d4c480c099d.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Tambahan overlay hanya untuk section-padding-bg */
+.section-padding-bg::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.4); /* Overlay lebih tipis */
-    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.6); /* opacity lebih tipis */
+    z-index: 0;
 }
 
-/* Konten di atas overlay */
-.section-padding > * {
+/* Konten di dalam section-padding-bg tetap muncul di atas overlay */
+.section-padding-bg > * {
     position: relative;
-    z-index: 3;
-}
-
-/* Title Section */
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-    background-color: rgba(255, 255, 255, 0.8); /* Bikin judul lebih kelihatan */
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-}
-
-/* Title H2 */
-.section-title h2 {
-    font-size: 40px;
-    color: #1a1a1a; /* Warna teks gelap */
-    font-weight: 700;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-/* Garis bawah pada judul */
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -12px;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #3a7bd5, #00d2ff); /* Gradient line */
-    transform: translateX(-50%);
-    border-radius: 9999px;
-}
-
-/* Paragraph di section title */
-.section-title p {
-    font-size: 18px;
-    color: #555; /* Agak abu abu */
-    max-width: 700px;
-    margin: 15px auto 0;
-}
-
-/* Card untuk konten */
-.service-card, .package-card, .content-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover efek pada card */
-.service-card:hover, .package-card:hover, .content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1;
 }
 
 
