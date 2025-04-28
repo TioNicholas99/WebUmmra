@@ -98,23 +98,32 @@ ul {
 /* Section dengan background fade rapi  */
 /* ===================================== */
 .section-padding {
-    padding: 120px 0;
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
-    z-index: 1;
-    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-                url('d8f1b6fd-bc74-4cf3-a27b-6d4c480c099d.png') center/cover no-repeat;
-    background-attachment: fixed;
+    background: 
+        linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.7)
+        ),
+        url('d8f1b6fd-bc74-4cf3-a27b-6d4c480c099d.png');
+    background-position: center center;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-/* Untuk HP supaya tidak berat scroll */
+/* Untuk HP */
 @media (max-width: 768px) {
     .section-padding {
         background-attachment: scroll;
     }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Judul section */
@@ -213,6 +222,7 @@ ul {
         font-size: 14px;
     }
 }
+
 
 
 /* Modern Button Styles */
