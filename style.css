@@ -163,7 +163,20 @@ ul {
     margin: 15px auto 0;
 }
 
-/* Modern Button Styles */
+/* Make content cards stand out on the faded background */
+.service-card, .package-card, .content-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover, .package-card:hover, .content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}/* Modern Button Styles */
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -341,7 +354,6 @@ header.sticky .mobile-menu-btn {
     padding: 0 20px;
     overflow: hidden;
 }
-
 
 .hero::before {
     content: '';
