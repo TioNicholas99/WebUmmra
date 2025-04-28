@@ -297,7 +297,7 @@ header.sticky .mobile-menu-btn {
 
 /* Enhanced Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?mecca,kaaba') no-repeat center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('360_F_230109278_7nLwvci9VgoWlrxGWVkd8XwxWElkowbl.jpg') no-repeat center/cover;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -306,6 +306,7 @@ header.sticky .mobile-menu-btn {
     padding-top: 80px;
     position: relative;
 }
+
 
 .hero::before {
     content: '';
